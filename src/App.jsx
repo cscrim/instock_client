@@ -1,35 +1,45 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import Warehouse from './pages/Warehouse/Warehouse';
+import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
+import EditWarehouse from './pages/EditWarehouse/EditWarehouse';
+import AddWarehouse from './pages/AddWarehouse/AddWarehouse';
+
+import Inventory from './pages/Inventory';
+import InventoryDetails from './pages/InventoryDetails';
+import EditInventory from './pages/EditInventory/EditInventory';
+import AddInventory from './pages/AddInventory/AddInventory';
+
+
 import './App.scss'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+      <Header />
+        <Routes>
+
+          {/* Warehouse Routes */}
+          <Route path="/warehouses" element={<Warehouse />} />
+          <Route path="/warehouses/details" element={<WarehouseDetails />} /> 
+          <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
+          <Route path="/warehouses/add" element={<AddWarehouse />} />
+
+
+          {/* Inventory Routes */}
+          <Route path="/inventory" element={<Inventory />} />
+          <Route path="/inventory/details" element={<InventoryDetails />} />
+          <Route path="/inventory/edit/:id" element={<EditInventory />} />
+          <Route path="/inventory/add" element={<AddInventory />} />
+
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+

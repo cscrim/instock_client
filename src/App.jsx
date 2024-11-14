@@ -3,8 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/header";
 import Footer from "./components/Footer/footer";
 // import your pages here
+<<<<<<< HEAD
 import Warehouse from './pages/Warehouse/Warehouse';
 import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
+=======
+import Warehouse from "./pages/Warehouse/Warehouse";
+// import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
+>>>>>>> develop
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import AddWarehouse from './pages/AddWarehouse/AddWarehouse';
 
@@ -22,12 +27,17 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
+            {/* <Route path="/warehouses/edit/:id" element={<EditWarehouse />} /> */}
 
             {/* Warehouse Routes */}
             <Route path="/warehouses" element={<Warehouse />} />
+<<<<<<< HEAD
             <Route path="/warehouses/details" element={<WarehouseDetails />} />
             <Route path="/warehouses/add" element={<AddWarehouse />} />
+=======
+            {/* <Route path="/warehouses/details" element={<WarehouseDetails />} />
+            <Route path="/warehouses/add" element={<AddWarehouse />} /> */}
+>>>>>>> develop
 
             {/* Inventory Routes */}
             <Route path="/inventory" element={<Inventory />} />

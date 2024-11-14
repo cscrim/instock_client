@@ -1,114 +1,111 @@
-$primary-color: #4caf50;
-$cancel-color: #f44336;
-$error-color: #e74c3c;
-$input-border: 1px solid #ccc;
-$input-focus-border: 1px solid $primary-color;
-$label-font-size: 0.875rem; // Smaller label font size
-$input-font-size: 0.875rem; // Smaller input font size
-$button-font-size: 0.875rem; // Smaller button font size
-
-.edit-warehouse-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 10px; // Reduced gap between elements
-  max-width: 600px; // Set a max-width for the form to make it smaller
-  margin: 0 auto; // Center the form horizontally
-  background-color: white;
+.edit-warehouse {
+  height: 922px;
   width: 100%;
-  .form__details {
-    width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+  &__header {
+    margin-bottom: 1.5rem;
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #2b2b2b;
+      text-align: center;
+    }
   }
-  .form-group {
-    flex: 1 1 100%;
+
+  &__section {
+    margin-bottom: 2rem;
+
+    h3 {
+      font-size: 1.4rem;
+      color: #2b2b2b;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #dcdcdc;
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  &__field {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px; // Reduced margin bottom for smaller spacing
+    margin-bottom: 1rem;
 
     label {
-      font-size: $label-font-size;
-      margin-bottom: 5px;
+      font-size: 1rem;
+      color: #5c5c5c;
+      margin-bottom: 0.5rem;
     }
 
     input {
-      padding: 8px; // Smaller padding
-      font-size: $input-font-size;
-      border: $input-border;
+      height: 40px;
+      padding: 0 10px;
+      border: 1px solid #dcdcdc;
       border-radius: 4px;
-      transition: border-color 0.3s ease;
+      font-size: 1rem;
+      color: #333;
 
       &:focus {
-        border-color: $input-focus-border;
+        border-color: #0061f2;
+        outline: none;
       }
-
-      &.error {
-        border-color: $error-color;
-      }
-    }
-
-    .error {
-      color: $error-color;
-      font-size: 0.8rem; // Smaller error text
-      margin-top: 5px;
     }
   }
 
-  .warehouse-details,
-  .contact-details {
+  &__buttons {
     display: flex;
-    flex-direction: column;
-    gap: 10px; // Reduced gap between fields
-    width: 100%;
-  }
-
-  .form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px; // Reduced gap between buttons
-    margin-top: 15px;
+    justify-content: space-between;
+    margin-top: 1.5rem;
 
     button {
-      padding: 8px 16px; // Smaller padding for buttons
-      font-size: $button-font-size;
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
       border-radius: 4px;
+      border: none;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background 0.3s ease;
 
-      &.save-button {
-        background-color: $primary-color;
-        color: white;
-        border: none;
+      &.edit-warehouse__cancel {
+        background-color: #dcdcdc;
+        color: #333;
 
         &:hover {
-          background-color: black;
+          background-color: #c1c1c1;
         }
       }
 
-      &.cancel-button {
-        background-color: $cancel-color;
-        color: white;
-        border: none;
+      &.edit-warehouse__save {
+        background-color: #0061f2;
+        color: #ffffff;
 
         &:hover {
-          background-color: black;
+          background-color: #004bb5;
         }
       }
     }
   }
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
+  &__error,
+  &__success {
+    margin-bottom: 1.5rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 4px;
 
-    .form-group {
-      flex: 1 1 100%;
-      max-width: 100%;
+    &.edit-warehouse__error {
+      background-color: #ffe5e5;
+      color: #d32f2f;
     }
 
-    .warehouse-details,
-    .contact-details {
-      width: 100%;
+    &.edit-warehouse__success {
+      background-color: #e6f9e6;
+      color: #2e7d32;
     }
   }
 }

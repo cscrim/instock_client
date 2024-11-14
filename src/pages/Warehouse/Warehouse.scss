@@ -1,3 +1,25 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
+
+.warehouse-page {
+  border-radius: 3px;
+  background: white;
+  width: 90%;
+
+  margin: 0 auto;
+  @include tablet {
+  }
+  @include desktop {
+    margin-top: 2rem;
+    width: 70%;
+  }
+}
+
+.search-input {
+  @include mobile-search-styling;
+
+  @include tablet {
+    @include tablet-search-styling;
+  }
+}

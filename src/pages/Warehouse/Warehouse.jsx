@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WarehouseList from "../../components/WarehouseList/WarehouseList"; // Import WarehouseList component
 import WarehouseDeleteModal from "../../components/WarehouseDeleteModal/WarehouseDeleteModal"; // Import the modal component
+import "./Warehouse.scss";
 
 const WarehousePage = () => {
   const [warehouses, setWarehouses] = useState([]);
@@ -58,9 +59,13 @@ const WarehousePage = () => {
   }, []);
 
   return (
-    <div className="WarehousePage">
+    <div className="warehouse-page">
       <h1>Warehouses</h1>
-      <input type="text" placeholder="Search..."></input>
+      <input
+        type="text"
+        className="search-input"
+        placeholder="Search..."
+      ></input>
       <button type="submit">+ Add New Warehouse</button>
 
       <WarehouseList

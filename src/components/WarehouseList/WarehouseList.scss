@@ -1,3 +1,5 @@
+//
+
 /* src/components/WarehouseList.scss */
 @use "../../styles/partials/variables.scss" as *;
 @use "../../styles/partials/mixins.scss" as *;
@@ -6,7 +8,26 @@
   padding: 0;
   list-style-type: none;
 
-  /* Row styling */
+  /* Header row for tablet and desktop view */
+  &__header-row {
+    display: none; /* Hidden on mobile */
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ddd;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    @include desktop {
+      padding: 12px 24px;
+    }
+  }
+
+  /* Row styling for individual warehouses */
   &__row {
     display: flex;
     flex-direction: column;
@@ -16,10 +37,11 @@
     @include tablet {
       flex-direction: row; /* Row layout on tablet */
       justify-content: space-between;
+      padding: 15px 20px;
     }
 
     @include desktop {
-      /* Further styling for large desktop screens */
+      padding: 20px 24px;
     }
   }
 
@@ -30,62 +52,26 @@
 
     @include tablet {
       margin-bottom: 0;
-      /* Adjust widths or padding for tablet and desktop */
-    }
-
-    @include desktop {
-      /* Further desktop-specific adjustments can be made here */
     }
   }
 
-  /* Header item styling for mobile (visible in mobile view) */
-  .warehouse-list__header-item {
+  /* Header item styling within each row for mobile only */
+  &__header-item {
     font-weight: bold;
     margin-bottom: 5px;
-    display: block;
 
-    @include tablet {
-      display: none; /* Hide header items on tablet and desktop */
-    }
+    /* Show only on mobile */
+    &.mobile-only {
+      display: block;
 
-    @include desktop {
-      /* Hide or style any desktop-specific headers if needed */
-    }
-  }
-
-  /* For each list item in tablet/desktop, we show them horizontally */
-  @include tablet {
-    .warehouse-list__header-item {
-      display: none; /* Hide header items on tablet/desktop */
-    }
-
-    .warehouse-list__row {
-      flex-direction: row; /* Horizontal layout on tablet */
-    }
-
-    .warehouse-list__item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center items on tablet */
-    }
-
-    /* Hide extra div on desktop */
-    .warehouse-list__item div {
-      margin-bottom: 5px;
-    }
-  }
-
-  @include desktop {
-    .warehouse-list__item {
-      display: flex;
-      flex-direction: row; /* Horizontal layout on desktop */
-      justify-content: space-between;
+      @include tablet {
+        display: none; /* Hide on tablet and desktop */
+      }
     }
   }
 
   /* Button styling for delete and edit */
-  .warehouse-list__button {
+  &__button {
     margin-left: 10px;
     padding: 5px 10px;
     cursor: pointer;
@@ -93,8 +79,8 @@
     background-color: white;
   }
 
-  /* Header styling for the list */
-  .warehouse-list__header {
+  /* Main header styling for the list */
+  &__header {
     font-weight: bold;
     padding: 10px;
     background-color: #f2f2f2;

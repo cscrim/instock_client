@@ -1,0 +1,121 @@
+.add-warehouse-container {
+    height: 922px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #2b2b2b;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  
+    .error-message,
+    .success-message {
+      margin-bottom: 1.5rem;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border-radius: 4px;
+  
+      &.error-message {
+        background-color: #ffe5e5;
+        color: #d32f2f;
+      }
+  
+      &.success-message {
+        background-color: #e6f9e6;
+        color: #2e7d32;
+      }
+    }
+  
+    .form__details {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+  
+      .warehouse-details,
+      .contact-details {
+        width: 48%; // Adjust the width to have two columns side by side
+      }
+    }
+  
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+  
+      label {
+        font-size: 1rem;
+        color: #5c5c5c;
+        margin-bottom: 0.5rem;
+      }
+  
+      input {
+        height: 40px;
+        padding: 0 10px;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        font-size: 1rem;
+        color: #333;
+  
+        &:focus {
+          border-color: #0061f2;
+          outline: none;
+        }
+  
+        &.error {
+          border-color: #d32f2f;
+        }
+      }
+  
+      .error {
+        font-size: 0.875rem;
+        color: #d32f2f;
+        margin-top: 0.5rem;
+      }
+    }
+  
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+  
+      button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+  
+        &.btn-primary {
+          background-color: #0061f2;
+          color: #ffffff;
+  
+          &:disabled {
+            background-color: #c1c1c1;
+          }
+  
+          &:hover {
+            background-color: #004bb5;
+          }
+        }
+  
+        &.btn-secondary {
+          background-color: #dcdcdc;
+          color: #333;
+  
+          &:hover {
+            background-color: #c1c1c1;
+          }
+        }
+      }
+    }
+  }

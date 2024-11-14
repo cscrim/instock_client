@@ -33,8 +33,9 @@ const AddWarehouse = () => {
     contact_email: "",
   });
 
-  const [error, setError] = useState({});
+  const [errors, setError] = useState({});
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
 
   const handleChange = (event) => {
     setFormData({

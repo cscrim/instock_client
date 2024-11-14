@@ -3,6 +3,7 @@ import axios from "axios";
 import WarehouseList from "../../components/WarehouseList/WarehouseList"; // Import WarehouseList component
 import WarehouseDeleteModal from "../../components/WarehouseDeleteModal/WarehouseDeleteModal"; // Import the modal component
 import "./Warehouse.scss";
+import searchIcon from "../../assets/Icons/search-24px.svg";
 
 const WarehousePage = () => {
   const [warehouses, setWarehouses] = useState([]);
@@ -60,13 +61,17 @@ const WarehousePage = () => {
 
   return (
     <div className="warehouse-page">
-      <h1>Warehouses</h1>
-      <input
-        type="text"
-        className="search-input"
-        placeholder="Search..."
-      ></input>
-      <button type="submit">+ Add New Warehouse</button>
+      <div className="warehouse-page__top-box">
+        <h1 className="warehouse-page__title">Warehouses</h1>
+        <input
+          type="text"
+          className="warehouse-page__search-input"
+          placeholder="Search..."
+        ></input>
+        <button type="submit" className="warehouse-page__add-button">
+          + Add New Warehouse
+        </button>
+      </div>
 
       <WarehouseList
         warehouses={warehouses}

@@ -1,0 +1,31 @@
+body {
+  background: linear-gradient(
+    rgba(35, 41, 64, 1) 250px,
+    rgba(247, 248, 249, 1) 250px
+  );
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}

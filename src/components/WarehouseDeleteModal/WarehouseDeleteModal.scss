@@ -1,3 +1,47 @@
 @use "../../styles/partials/variables" as *;
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/typography' as *;
+
+.modalOverlay {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    margin-left: 2rem;
+    margin-top: 2rem;
+    background: white;
+    width: 100%;
+    height: 100%;
+    text-align: flex-start;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+h2 {
+    margin-bottom: 2rem;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+button {
+    flex: 1 1 45%;
+    height: 3rem;
+}
+
+.delete {
+    @include mobile-delete-button-styling
+}
+
+.cancel {
+    @include mobile-secondary-button-styling
+}

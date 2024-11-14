@@ -1,5 +1,7 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react'
+
+import Header from './components/Header/Header';
 
 import Warehouse from './pages/Warehouse/Warehouse';
 import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
@@ -19,7 +21,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Header />
+      <header />
         <Routes>
 
           {/* Warehouse Routes */}

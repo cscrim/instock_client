@@ -1,7 +1,7 @@
 @use "/src/styles/partials/variables" as *;
 @use "/src/styles/partials/mixins" as *;
 @use "/src/styles/partials/global" as *;
-
+// @use ""
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,7 +16,7 @@ body {
   );
   min-height: 100vh;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Titillium Web";
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,7 +25,7 @@ body {
 /* Header Section */
 .header-container {
   min-width: 100vw;
-  width: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,6 +37,7 @@ body {
     $background-graphite,
     $background-graphite
   );
+  font-family: "Titillium Web";
   padding: 20px;
   border-radius: 8px;
   display: flex;
@@ -44,10 +45,17 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
+  @include mobile-page-header;
   @include tablet {
+    @include tablet-page-header;
+    width: 90%;
     flex-direction: row;
     padding: 1rem;
     margin: 0;
+  }
+
+  @include desktop {
+    width: 70%;
   }
 
   &__img-container {
@@ -73,7 +81,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 80%;
     align-items: center;
     justify-content: space-between;
     @include tablet {
@@ -87,20 +95,19 @@ body {
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    cursor: pointer;
     font-size: 1rem;
-    color: #b0c4de;
+    color: $secondary-cloud;
     transition: color 0.3s ease;
     width: auto;
     text-align: center;
 
     &:hover {
-      color: #ffffff;
+      color: $primary-white;
     }
 
     &--active {
       background-color: $primary-black;
-      color: #ffffff;
+      color: $primary-white;
     }
   }
 }

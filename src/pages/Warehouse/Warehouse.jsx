@@ -59,7 +59,10 @@ const WarehousePage = () => {
 
   return (
     <div className="WarehousePage">
-      <h1>Warehouse List</h1>
+      <h1>Warehouses</h1>
+      <input type="text" placeholder="Search..."></input>
+      <button type="submit">+ Add New Warehouse</button>
+
       <WarehouseList
         warehouses={warehouses}
         onDelete={openModal} // Pass the openModal function to handle delete

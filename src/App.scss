@@ -1,0 +1,67 @@
+@use "./styles/partials/variables.scss" as *;
+@use "./styles/partials/mixins.scss" as *;
+@use "./styles/partials/global.scss" as *;
+@use "./styles/partials/typography" as *;
+body {
+  background: linear-gradient(
+    rgba(35, 41, 64, 1) 200px,
+    rgba(247, 248, 249, 1) 200px 1154px
+  );
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Titillium Web";
+}
+
+.App {
+  height: 1154px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-content: center;
+  flex-wrap: wrap;
+  @include tablet {
+    height: 0;
+  }
+  @include desktop {
+    height: 0;
+  }
+}
+
+main {
+  left: 16px;
+  top: 136px;
+  border-radius: 3px;
+  height: 922px;
+  background: white;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  flex-grow: 1;
+  @include tablet {
+    height: 612px;
+    flex-grow: 0;
+  }
+  @include desktop {
+    flex-grow: 0;
+    margin-top: 2rem;
+    height: 612px;
+    width: 70%;
+  }
+}
+
+//   width: 80vw;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin: 0 auto;
+//   flex-grow: 1;
+// }
+
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}

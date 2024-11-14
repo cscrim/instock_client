@@ -1,0 +1,114 @@
+$primary-color: #4caf50;
+$cancel-color: #f44336;
+$error-color: #e74c3c;
+$input-border: 1px solid #ccc;
+$input-focus-border: 1px solid $primary-color;
+$label-font-size: 0.875rem; // Smaller label font size
+$input-font-size: 0.875rem; // Smaller input font size
+$button-font-size: 0.875rem; // Smaller button font size
+
+.edit-warehouse-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px; // Reduced gap between elements
+  max-width: 600px; // Set a max-width for the form to make it smaller
+  margin: 0 auto; // Center the form horizontally
+  background-color: white;
+  width: 100%;
+  .form__details {
+    width: 100%;
+  }
+  .form-group {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; // Reduced margin bottom for smaller spacing
+
+    label {
+      font-size: $label-font-size;
+      margin-bottom: 5px;
+    }
+
+    input {
+      padding: 8px; // Smaller padding
+      font-size: $input-font-size;
+      border: $input-border;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: $input-focus-border;
+      }
+
+      &.error {
+        border-color: $error-color;
+      }
+    }
+
+    .error {
+      color: $error-color;
+      font-size: 0.8rem; // Smaller error text
+      margin-top: 5px;
+    }
+  }
+
+  .warehouse-details,
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; // Reduced gap between fields
+    width: 100%;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; // Reduced gap between buttons
+    margin-top: 15px;
+
+    button {
+      padding: 8px 16px; // Smaller padding for buttons
+      font-size: $button-font-size;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &.save-button {
+        background-color: $primary-color;
+        color: white;
+        border: none;
+
+        &:hover {
+          background-color: black;
+        }
+      }
+
+      &.cancel-button {
+        background-color: $cancel-color;
+        color: white;
+        border: none;
+
+        &:hover {
+          background-color: black;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+    .form-group {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+
+    .warehouse-details,
+    .contact-details {
+      width: 100%;
+    }
+  }
+}

@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./EditWarehouse.scss";
 import WarehouseFormReusable from "/src/components/WarehouseFormReusable/WarehouseFormReusable.jsx";
-const EditWarehouse = ({ warehouseId }) => {
+import { useParams } from "react-router-dom"; //
+
+const EditWarehouse = () => {
+  const { warehouseId } = useParams(); //
   const [formData, setFormData] = useState({
     warehouse_name: "",
     address: "",

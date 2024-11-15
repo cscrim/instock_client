@@ -293,3 +293,8 @@
   background-color: $supporting-green;
   opacity: 0.07;
 }
+
+@mixin divider {
+  border-bottom: 0.0625rem solid $secondary-cloud;
+  margin: 1rem;
+}

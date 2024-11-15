@@ -1,5 +1,5 @@
-// src/components/WarehouseList.jsx
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link
 import "./WarehouseList.scss";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
@@ -22,7 +22,13 @@ const WarehouseList = ({ warehouses, onDelete }) => {
             <div className="warehouse-list__header-item mobile-only">
               WAREHOUSE
             </div>
-            <div>{warehouse.warehouse_name}</div>
+            {/* Link to WarehouseDetails */}
+            <Link
+              to={`/warehouses/details/${warehouse.id}`}
+              className="warehouse-list__name-link"
+            >
+              {warehouse.warehouse_name}
+            </Link>
           </div>
           <div className="warehouse-list__item">
             <div className="warehouse-list__header-item mobile-only">

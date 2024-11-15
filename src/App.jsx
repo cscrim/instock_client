@@ -9,10 +9,10 @@ import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 
-// import Inventory from './pages/Inventory';
-// import InventoryDetails from "./pages/InventoryDetails/InventoryDetails";
-// import EditInventory from './pages/EditInventory/EditInventory';
-// import AddInventory from './pages/AddInventory/AddInventory';
+import Inventory from "./pages/Inventory";
+import InventoryDetails from "./pages/InventoryDetails/InventoryDetails";
+// import EditInventory from "./pages/EditInventory/EditInventory";
+// import AddInventory from "./pages/AddInventory/AddInventory";
 
 import "./App.scss";
 
@@ -29,14 +29,18 @@ function App() {
               path="/warehouses/edit/:warehouseId"
               element={<EditWarehouse />}
             />
-
             <Route path="/warehouses/details" element={<WarehouseDetails />} />
             <Route path="/warehouses/add" element={<AddWarehouse />} />
-
             {/* Inventory Routes */}
-            {/* <Route path="/inventory" element={<Inventory />} />
+            <Route path="/inventory" element={<Inventory />} />
+            <Route
+              path="/inventory/details/:id"
+              element={<InventoryDetails />}
+            />
+            <Route path="/inventory" element={<Inventory />} />
+            //{" "}
             <Route path="/inventory/details" element={<InventoryDetails />} />
-            <Route path="/inventory/edit/:id" element={<EditInventory />} />
+            {/* <Route path="/inventory/edit/:id" element={<EditInventory />} />
             <Route path="/inventory/add" element={<AddInventory />} /> */}
           </Routes>
         </main>

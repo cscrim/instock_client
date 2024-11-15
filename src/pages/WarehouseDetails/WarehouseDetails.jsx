@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom"; // useParams for URL params, useNavigate for navigation
 import axios from "axios"; // Import axios
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
+import "./WarehouseDetails.scss";
 
 const WarehouseDetailsPage = () => {
   const { id } = useParams(); // Get warehouse id from URL

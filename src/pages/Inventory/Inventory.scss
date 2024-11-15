@@ -34,6 +34,8 @@
 
     @include tablet {
       @include tablet-search-styling;
+      margin: 0 2rem;
+      width: 40%;
     }
   }
 
@@ -43,10 +45,17 @@
 
     @include tablet {
       @include tablet-primary-button-styling;
+      margin-bottom: 0;
     }
   }
 
   &__top-box {
     border-bottom: 0.0625rem solid $secondary-cloud;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
   }
 }

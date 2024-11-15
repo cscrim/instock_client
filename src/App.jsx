@@ -4,12 +4,13 @@ import Header from "./components/Header/header";
 import Footer from "./components/Footer/footer";
 // import your pages here
 import Warehouse from "./pages/Warehouse/Warehouse";
-import WarehouseDetailsPage from "./pages/WarehouseDetails/WarehouseDetails";
-// import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
-// import AddWarehouse from './pages/AddWarehouse/AddWarehouse';
+
+import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
+import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
+import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 
 // import Inventory from './pages/Inventory';
-// import InventoryDetails from './pages/InventoryDetails';
+// import InventoryDetails from "./pages/InventoryDetails/InventoryDetails";
 // import EditInventory from './pages/EditInventory/EditInventory';
 // import AddInventory from './pages/AddInventory/AddInventory';
 
@@ -22,15 +23,15 @@ function App() {
         <Header />
         <main>
           <Routes>
-            {/* <Route path="/warehouses/edit/:id" element={<EditWarehouse />} /> */}
-
             {/* Warehouse Routes */}
             <Route path="/warehouses" element={<Warehouse />} />
             <Route
-              path="/warehouses/details/:id"
-              element={<WarehouseDetailsPage />}
+              path="/warehouses/edit/:warehouseId"
+              element={<EditWarehouse />}
             />
-            {/* <Route path="/warehouses/add" element={<AddWarehouse />} /> */}
+
+            <Route path="/warehouses/details" element={<WarehouseDetails />} />
+            <Route path="/warehouses/add" element={<AddWarehouse />} />
 
             {/* Inventory Routes */}
             {/* <Route path="/inventory" element={<Inventory />} />

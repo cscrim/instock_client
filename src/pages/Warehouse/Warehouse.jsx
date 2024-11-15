@@ -4,6 +4,7 @@ import WarehouseList from "../../components/WarehouseList/WarehouseList"; // Imp
 import WarehouseDeleteModal from "../../components/WarehouseDeleteModal/WarehouseDeleteModal"; // Import the modal component
 import "./Warehouse.scss";
 import searchIcon from "../../assets/Icons/search-24px.svg";
+import { Link } from 'react-router-dom';
 
 const WarehousePage = () => {
   const [warehouses, setWarehouses] = useState([]);
@@ -77,9 +78,12 @@ const WarehousePage = () => {
           className="warehouse-page__search-input"
           placeholder="Search..."
         ></input>
-        <button type="submit" className="warehouse-page__add-button">
+        {/* <button type="submit" className="warehouse-page__add-button">
           + Add New Warehouse
-        </button>
+        </button> */}
+        <Link to="/warehouses/add" className="warehouse-page__add-button">
+          + Add New Warehouse
+        </Link>
       </div>
       <WarehouseList
         warehouses={warehouses}

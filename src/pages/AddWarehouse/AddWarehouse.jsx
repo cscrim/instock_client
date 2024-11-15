@@ -128,6 +128,9 @@ const AddWarehouse = () => {
       <form onSubmit={handleSubmit}>
         <section className="form__details">
           <div className="warehouse-details">
+            <h3>
+              Warehouse Details
+            </h3>
             <FormInput
               label="Warehouse Name"
               name="warehouse_name"
@@ -159,6 +162,9 @@ const AddWarehouse = () => {
           </div>
 
           <div className="contact-details">
+            <h3>
+              Contact Details
+            </h3>
             <FormInput
               label="Contact Name"
               name="contact_name"
@@ -192,16 +198,17 @@ const AddWarehouse = () => {
         </section>
 
         <div className="form-actions">
-          <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? "Adding Warehouse..." : "Add Warehouse"}
-          </button>
-          <button
+        <button
             type="button"
             className="btn btn-secondary"
             onClick={handleCancel}
           >
             Cancel
           </button>
+          <button type="submit" className="btn btn-primary" disabled={loading}>
+            {loading ? "Adding Warehouse..." : "Add Warehouse"}
+          </button>
+          
         </div>
       </form>
     </div>

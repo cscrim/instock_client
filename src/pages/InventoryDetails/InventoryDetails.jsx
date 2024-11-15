@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import editIcon from "../../assets/Icons/edit-24px.svg";
+import backArrow from "../../assets/Icons/arrow_back-24px.svg";
+import "./InventoryDetails.scss";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
 const InventoryDetails = () => {
-  const { inventoryId } = useParams(); // Get inventoryId from the route params
+  const { inventoryId } = useParams();
   const [inventory, setInventory] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,16 +18,16 @@ const InventoryDetails = () => {
         const response = await fetch(`${BASE_URL}/inventory/${inventoryId}`);
         if (!response.ok) throw new Error("Could not fetch inventory item");
         const data = await response.json();
-        setInventory(data); // Set the fetched inventory data
+        setInventory(data);
       } catch (err) {
-        setError(err.message); // Set the error if any occurs
+        setError(err.message);
       } finally {
-        setLoading(false); // End loading state
+        setLoading(false);
       }
     };
 
     fetchInventory();
-  }, [inventoryId]); // Fetch data when inventoryId changes
+  }, [inventoryId]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -39,15 +42,64 @@ const InventoryDetails = () => {
   }
 
   return (
-    <div>
-      <h1>{inventory.item_name}</h1>
-      <p>Quantity: {inventory.quantity}</p>
-      <p>Location: {inventory.warehouse_name}</p>
-      <p>Description: {inventory.description}</p>
-      <p>Price: ${inventory.unit_price}</p>
-      <p>
-        Total Value: ${(inventory.quantity * inventory.unit_price).toFixed(2)}
-      </p>
+    <div className="inventory-details">
+      <div className="inventory-details__header">
+        <div className="inventory-details__back-and-title">
+          <Link to="/inventory" className="inventory-details__back-link">
+            <img
+              src={backArrow}
+              className="inventory-details__back-button"
+              alt="Back arrow"
+            />
+          </Link>
+          <h1>{inventory.item_name}</h1>
+        </div>
+
+        <Link
+          to={`/inventory/edit/${inventory.id}`}
+          className="inventory-details__edit-link"
+        >
+          <button className="inventory-details__edit-button">
+            <img src={editIcon} className="edit-button__icon" alt="edit icon" />
+          </button>
+        </Link>
+      </div>
+
+      <div className="inventory-details__content">
+        <div className="content__product-info">
+          <h4 className="content__title">PRODUCT DESCRIPTION:</h4>
+          <div>{inventory.description}</div>
+        </div>
+
+        <div className="content__category">
+          <h4 className="content__title">CATEGORY:</h4>
+          <div>{inventory.category}</div>
+        </div>
+
+        <div className="content__status-quantity">
+          <div className="content__status">
+            <h4 className="content__title">STATUS:</h4>
+            <div
+              className={`status-badge ${inventory.status
+                .toLowerCase()
+                .replace(/\s/g, "-")}`}
+            >
+              {inventory.status}
+            </div>
+          </div>
+
+          <div className="content__quantity">
+            <h4 className="content__title">QUANTITY IN STOCK:</h4>
+            <div>{inventory.quantity}</div>
+          </div>
+        </div>
+
+        <div className="content__warehouse">
+          <h4 className="content__title">WAREHOUSE LOCATION:</h4>
+          <div>{inventory.warehouse_name}</div>
+          <div>{inventory.warehouse_address}</div>
+        </div>
+      </div>
     </div>
   );
 };

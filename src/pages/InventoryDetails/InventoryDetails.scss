@@ -1,72 +1,108 @@
-// src/components/InventoryDetails/InventoryDetails.scss
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
 .inventory-details {
-  background-color: #ffffff; // White background for the card
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow for the card
-  overflow: hidden;
-  max-width: 500px; // Optional max-width to make it look like a card
-  margin: auto; // Center the card
-  padding: 20px; // Inner padding for the card content
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Tittlium Web";
+  font-size: 1rem;
 
   &__header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    background-color: #2c3e50; // Dark background color for the header
-    padding: 15px;
-    border-radius: 8px 8px 0 0; // Rounded top corners only to blend with the card
-    color: #fff;
-    position: relative;
-  }
-
-  &__icon-left,
-  &__icon-right {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    background-color: #1abc9c; // Teal background color for icons
-    border-radius: 50%;
-  }
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 1rem;
 
-  &__icon-left {
-    margin-right: 10px;
-  }
+    .inventory-details__back-and-title {
+      display: flex;
+      align-items: center;
 
-  &__title {
-    flex-grow: 1;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
+      .inventory-details__back-link {
+        display: inline-block;
+        padding: 0.5rem;
+        margin-right: 1rem;
+      }
 
-  &__info {
-    margin-top: 20px;
-
-    .label {
-      font-weight: bold;
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #13182c;
+      }
     }
 
-    .status {
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-weight: bold;
+    .inventory-details__edit-link {
+      display: inline-block;
 
-      &--in-stock {
-        color: #28a745;
-        background-color: #e6f7e6;
+      .inventory-details__edit-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .inventory-details__edit-icon {
+        width: 24px;
+        height: 24px;
       }
     }
   }
 
-  .edit-icon {
-    color: #fff;
-    font-size: 16px;
-  }
+  &__content {
+    margin-top: 2rem;
 
-  .icon-other {
-    color: #fff; // Style for the other icon on the right
-    font-size: 16px;
+    .content__title {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .content__product-info,
+    .content__category,
+    .content__warehouse {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .content__status-quantity {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 1rem;
+
+      .content__status,
+      .content__quantity {
+        flex: 1;
+      }
+
+      .content__quantity {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+      }
+    }
+
+    .status-badge {
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: inline-block;
+
+      &.in-stock {
+        background-color: #e0f7e0;
+        color: #2e7d32;
+      }
+
+      &.out-of-stock {
+        background-color: #ffe5e5;
+        color: #d32f2f;
+      }
+    }
   }
 }

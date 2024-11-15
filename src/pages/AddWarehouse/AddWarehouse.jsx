@@ -66,7 +66,7 @@ const AddWarehouse = () => {
       tempErrors.contact_email = "Invalid email format";
     }
 
-    setErrors(tempErrors);
+    setError(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
 

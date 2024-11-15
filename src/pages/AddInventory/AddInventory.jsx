@@ -42,7 +42,7 @@ const AddInventory = () => {
     const fetchData = async () => {
       try {
         const [categoriesRes, warehousesRes] = await Promise.all([
-          axios.get("http://localhost:8080/categories"), // Modify with correct endpoint
+          axios.get("http://localhost:8080/inventory/categories"), // Modify with correct endpoint
           axios.get("http://localhost:8080/warehouses"),
         ]);
         setCategories(categoriesRes.data);
@@ -106,7 +106,7 @@ const AddInventory = () => {
           quantity: "",
           warehouse_name: "",
         });
-        navigate("/inventories");
+        navigate("/inventory");
       } catch (error) {
         console.error("Error adding inventory", error);
         setErrors({ submit: "Failed to add inventory" });
@@ -127,7 +127,7 @@ const AddInventory = () => {
         quantity: "",
         warehouse_name: "",
       });
-      navigate("/inventories");
+      navigate("/inventory");
     }
   };
 
@@ -169,8 +169,8 @@ const AddInventory = () => {
               >
                 <option value="">Select Category</option>
                 {categories.map((category) => (
-                  <option key={category.id} value={category.id}>
-                    {category.name}
+                  <option key={category.category} value={category.category}>
+                    {category.category}
                   </option>
                 ))}
               </select>

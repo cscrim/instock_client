@@ -24,7 +24,7 @@ const WarehouseList = ({ warehouses, onDelete }) => {
             </div>
             {/* Link to WarehouseDetails */}
             <Link
-              to={`/warehouse/details/${warehouse.id}`}
+              to={`/warehouses/details/${warehouse.id}`}
               className="warehouse-list__name-link"
             >
               {warehouse.warehouse_name}

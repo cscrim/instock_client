@@ -1,15 +1,23 @@
 // src/components/WarehouseDetails.jsx
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link for navigation
 import editIcon from "../../assets/Icons/edit-white-24px.svg";
-import "./WarehouseDetails.scss"; // Add icon for editing
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
+import "./WarehouseDetails.scss";
 
 const WarehouseDetails = ({ warehouse, onEdit }) => {
   return (
     <div className="warehouse-details">
       <div className="warehouse-details__header">
         <div className="warehouse-details__name">
-          <img src={backArrow} className="warehouse-details__back-button" />
+          {/* Wrap back arrow in a Link to redirect to the Warehouse page */}
+          <Link to="/warehouses" className="warehouse-details__back-link">
+            <img
+              src={backArrow}
+              className="warehouse-details__back-button"
+              alt="Back arrow"
+            />
+          </Link>
           <h1>{warehouse.warehouse_name}</h1>
         </div>
         <button

@@ -1,3 +1,123 @@
 @use "../../styles/partials/variables" as *;
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/typography' as *;
+
+.modalWrapper {
+    // Default (Mobile) - No overlay
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;     // Position fixed to the viewport
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;       // Ensure it sits above other content
+    flex-direction: column;
+  
+    // Tablet and larger screens - Apply the semi-transparent overlay
+    @media (min-width: 768px) {
+      background: rgba(0, 0, 0, 0.5);  // Semi-transparent black overlay for tablet and up
+    }
+  }
+
+  
+
+.modalOverlay {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+
+    @include tablet {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+        height: 400px;
+        width: 800px;
+     
+    }
+}
+
+.modalContent {
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    background: white;
+    width: 100%;
+    height: 100%;
+    text-align: flex-start;
+    display: flex;
+    flex-direction: column;
+
+      @include tablet {
+        width: 60%;
+        max-width: 600px;
+
+    }
+    
+}
+
+h1 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+
+    @include tablet {
+        margin-top: 2rem;
+    }
+}
+
+h2 {
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 30rem;
+
+    @include tablet {
+        margin-top: 2rem;
+        justify-content: flex-end;
+        gap: 1rem;
+
+    }
+}
+
+button {
+    flex: 1 1 45%;
+
+}
+
+.delete {
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+    @include mobile-delete-button-styling
+}
+
+.cancel {
+    margin-left: 1rem;
+    @include mobile-secondary-button-styling
+}
+
+@include tablet {
+    .modalButtons button {
+        width: auto;  
+        flex: none;  
+        padding: 0.5rem 1.2rem;  
+        margin-left: 0.5rem;  
+    }
+}

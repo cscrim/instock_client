@@ -20,28 +20,36 @@ const WarehouseDetails = ({ warehouse, onEdit }) => {
           </Link>
           <h1>{warehouse.warehouse_name}</h1>
         </div>
-        <button
-          className="warehouse-details__edit-button"
-          onClick={() => onEdit(warehouse)}
+
+        {/* Link for editing warehouse */}
+        <Link
+          to={`/warehouses/edit/${warehouse.id}`}
+          className="warehouse-details__edit-link"
         >
-          <img
-            src={editIcon}
-            className="edit-button__icon"
-            alt="edit pencil icon"
-          />
-        </button>
-        <button
-          className="warehouse-details__edit-button--tablet"
-          onClick={() => onEdit(warehouse)}
+          <button className="warehouse-details__edit-button">
+            <img
+              src={editIcon}
+              className="edit-button__icon"
+              alt="edit pencil icon"
+            />
+          </button>
+        </Link>
+
+        <Link
+          to={`/warehouses/edit/${warehouse.id}`}
+          className="warehouse-details__edit-link--tablet"
         >
-          <img
-            src={editIcon}
-            className="edit-button__icon"
-            alt="edit pencil icon"
-          />
-          Edit
-        </button>
+          <button className="warehouse-details__edit-button--tablet">
+            <img
+              src={editIcon}
+              className="edit-button__icon"
+              alt="edit pencil icon"
+            />
+            Edit
+          </button>
+        </Link>
       </div>
+
       <div className="warehouse-details__content">
         <div className="content__address">
           <h4 className="content__title">WAREHOUSE ADDRESS:</h4>{" "}

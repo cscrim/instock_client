@@ -11,7 +11,7 @@ const WarehouseDetails = ({ warehouse, onEdit }) => {
       <div className="warehouse-details__header">
         <div className="warehouse-details__name">
           {/* Wrap back arrow in a Link to redirect to the Warehouse page */}
-          <Link to="/warehouses" className="warehouse-details__back-link">
+          <Link to="/" className="warehouse-details__back-link">
             <img
               src={backArrow}
               className="warehouse-details__back-button"

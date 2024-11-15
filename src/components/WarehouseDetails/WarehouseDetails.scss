@@ -23,6 +23,21 @@
     border-radius: 50%;
     border: none;
     padding: 0.5rem;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__edit-button--tablet {
+    display: none;
+
+    @include tablet {
+      @include tablet-primary-button-styling;
+      display: block;
+      display: flex;
+      align-items: center;
+    }
   }
 
   &__back-button {
@@ -35,6 +50,10 @@
     justify-content: space-between;
     padding-bottom: 1rem;
     @include divider;
+
+    @include tablet {
+      flex-direction: row;
+    }
   }
 }
 
@@ -44,4 +63,22 @@
 .content__contact-box {
   display: flex;
   justify-content: space-between;
+
+  @include tablet {
+    border-left: 1px solid $secondary-cloud;
+    padding: 0 4rem;
+    padding-right: 4.5rem;
+  }
+
+  @include desktop {
+    padding-right: 14.5rem;
+  }
+}
+
+.content__contact-name {
+  margin-right: 4rem;
+}
+
+.edit-button__icon {
+  margin-right: 0.25rem;
 }

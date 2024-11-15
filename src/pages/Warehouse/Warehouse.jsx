@@ -3,8 +3,7 @@ import axios from "axios";
 import WarehouseList from "../../components/WarehouseList/WarehouseList"; // Import WarehouseList component
 import WarehouseDeleteModal from "../../components/WarehouseDeleteModal/WarehouseDeleteModal"; // Import the modal component
 import "./Warehouse.scss";
-import searchIcon from "../../assets/Icons/search-24px.svg";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const WarehousePage = () => {
   const [warehouses, setWarehouses] = useState([]);

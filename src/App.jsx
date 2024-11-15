@@ -22,7 +22,7 @@ function App() {
         <Header />
         <main>
           <Routes>
-            {/* <Route path="/warehouses/edit/:id" element={<EditWarehouse />} /> */}
+            <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
 
             {/* Warehouse Routes */}
             <Route path="/warehouses" element={<Warehouse />} />

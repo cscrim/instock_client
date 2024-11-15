@@ -30,6 +30,8 @@ const WarehouseDeleteModal = ({
     //   overlayClassName="modalOverlay"
     //   contentLabel="Delete Warehouse"
     // >
+
+    <div className="modalWrapper">
     <div className="modalOverlay">
         <div className="modalContent">
           <h1>Delete {warehouseName} warehouse?</h1>
@@ -46,6 +48,7 @@ const WarehouseDeleteModal = ({
           <button className="delete" onClick={handleDeleteClick}>
             Delete
           </button>
+        </div>
         </div>
         </div>
         

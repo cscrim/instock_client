@@ -2,6 +2,28 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/typography' as *;
 
+.modalWrapper {
+    // Default (Mobile) - No overlay
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;     // Position fixed to the viewport
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;       // Ensure it sits above other content
+    flex-direction: column;
+  
+    // Tablet and larger screens - Apply the semi-transparent overlay
+    @media (min-width: 768px) {
+      background: rgba(0, 0, 0, 0.5);  // Semi-transparent black overlay for tablet and up
+    }
+  }
+
+  
+
 .modalOverlay {
     background: white;
     display: flex;
@@ -22,6 +44,7 @@
         flex-direction: column;
         height: 400px;
         width: 800px;
+     
     }
 }
 
@@ -76,6 +99,7 @@ h2 {
 
 button {
     flex: 1 1 45%;
+
 }
 
 .delete {
@@ -91,10 +115,9 @@ button {
 
 @include tablet {
     .modalButtons button {
-        /* Reduce width and padding on tablet */
-        width: auto;  /* Allow buttons to shrink to their content */
-        flex: none;  /* Disable flex growth to respect width */
-        padding: 0.5rem 1.2rem;  /* Smaller padding for tablets */
-        margin-left: 0.5rem;  /* Small space between buttons */
+        width: auto;  
+        flex: none;  
+        padding: 0.5rem 1.2rem;  
+        margin-left: 0.5rem;  
     }
 }

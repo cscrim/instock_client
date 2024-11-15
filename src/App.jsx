@@ -4,9 +4,11 @@ import Header from "./components/Header/header";
 import Footer from "./components/Footer/footer";
 // import your pages here
 import Warehouse from "./pages/Warehouse/Warehouse";
-import WarehouseDetailsPage from "./pages/WarehouseDetails/WarehouseDetails";
+
+// import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
 // import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
-// import AddWarehouse from './pages/AddWarehouse/AddWarehouse';
+import AddWarehouse from './pages/AddWarehouse/AddWarehouse';
+
 
 // import Inventory from './pages/Inventory';
 // import InventoryDetails from './pages/InventoryDetails';
@@ -26,11 +28,10 @@ function App() {
 
             {/* Warehouse Routes */}
             <Route path="/warehouses" element={<Warehouse />} />
-            <Route
-              path="/warehouses/details/:id"
-              element={<WarehouseDetailsPage />}
-            />
-            {/* <Route path="/warehouses/add" element={<AddWarehouse />} /> */}
+
+            {/* <Route path="/warehouses/details" element={<WarehouseDetails />} /> */}
+            <Route path="/warehouses/add" element={<AddWarehouse />} />
+
 
             {/* Inventory Routes */}
             {/* <Route path="/inventory" element={<Inventory />} />

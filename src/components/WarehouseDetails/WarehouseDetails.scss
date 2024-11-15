@@ -1,0 +1,84 @@
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
+.warehouse-details {
+  background-color: white;
+  padding: 2rem;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include divider;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+  }
+
+  &__edit-button {
+    margin: 1rem;
+    background-color: $primary-indigo;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    padding: 0.5rem;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__edit-button--tablet {
+    display: none;
+
+    @include tablet {
+      @include tablet-primary-button-styling;
+      display: block;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__back-button {
+    height: 2rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    @include divider;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+}
+
+.content__title {
+  color: $secondary-cloud;
+}
+.content__contact-box {
+  display: flex;
+  justify-content: space-between;
+
+  @include tablet {
+    border-left: 1px solid $secondary-cloud;
+    padding: 0 4rem;
+    padding-right: 4.5rem;
+  }
+
+  @include desktop {
+    padding-right: 14.5rem;
+  }
+}
+
+.content__contact-name {
+  margin-right: 4rem;
+}
+
+.edit-button__icon {
+  margin-right: 0.25rem;
+}

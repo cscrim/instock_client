@@ -111,7 +111,6 @@ const WarehousePage = () => {
             />
           ))
         : null}
-      {/* )} */}
     </div>
   );
 };

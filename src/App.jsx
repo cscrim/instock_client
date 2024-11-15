@@ -5,7 +5,7 @@ import Footer from "./components/Footer/footer";
 // import your pages here
 import Warehouse from "./pages/Warehouse/Warehouse";
 
-import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
+import WarehouseDetailsPage from "./pages/WarehouseDetails/WarehouseDetails";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 
@@ -23,10 +23,9 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
-
             {/* Warehouse Routes */}
-            <Route path="/warehouses" element={<Warehouse />} />
+            <Route path="/" element={<Warehouse />} />
+            <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
             <Route
               path="/warehouses/details/:id"
               element={<WarehouseDetailsPage />}

@@ -1,31 +1,61 @@
-import React from "react";
-import "./WarehouseDeleteModal.scss"; // Import styles for the modal
+import "./WarehouseDeleteModal.scss";
+// import Modal from "react-modal";
 
-const WarehouseDeleteModal = ({ isOpen, onClose, onDelete, warehouseId }) => {
-  // Don't render the modal if it's not open
+// Modal.setAppElement("#root");
+
+const WarehouseDeleteModal = ({
+  isOpen,
+  onClose,
+  onDelete,
+  warehouseId,
+  warehouseName,
+}) => {
   if (!isOpen) return null;
 
   const handleDeleteClick = () => {
     if (warehouseId) {
-      onDelete(warehouseId); // Perform the deletion if warehouseId is available
+      onDelete(warehouseId);
     }
   };
 
+  const handleCancelClick = () => {
+    onClose();
+  };
+
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <h2>Are you sure you want to delete this warehouse?</h2>
-        <div className="modal-actions">
-          <button onClick={onClose} className="modal-cancel-button">
+    // <Modal
+    //   isOpen={isOpen}
+    //   onRequestClose={onClose}
+    //   className="modalContent"
+    //   overlayClassName="modalOverlay"
+    //   contentLabel="Delete Warehouse"
+    // >
+
+    <div className="modalWrapper">
+    <div className="modalOverlay">
+        <div className="modalContent">
+          <h1>Delete {warehouseName} warehouse?</h1>
+          <h2>
+            Please confirm you'd like to delete the {warehouseName} warehouse
+            from the list of warehouses. You won't be able to undo this action.
+          </h2>
+          </div>
+
+        <div className="modalButtons">
+          <button className="cancel" onClick={handleCancelClick}>
             Cancel
           </button>
-          <button onClick={handleDeleteClick} className="modal-delete-button">
+          <button className="delete" onClick={handleDeleteClick}>
             Delete
           </button>
         </div>
-      </div>
-    </div>
+        </div>
+        </div>
+        
+   
   );
 };
 
 export default WarehouseDeleteModal;
+
+

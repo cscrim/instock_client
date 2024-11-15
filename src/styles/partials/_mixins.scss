@@ -1,6 +1,5 @@
 @use "./variables" as *;
 
-
 @mixin tablet {
   @media (min-width: $tablet-breakpoint) {
     @content;
@@ -96,6 +95,7 @@
   border-radius: 1.25rem;
   color: white;
   background-color: $primary-indigo;
+  border: none;
 }
 
 @mixin mobile-secondary-button-styling {
@@ -126,6 +126,7 @@
   border-radius: 1.25rem;
   color: white;
   background-color: $primary-indigo;
+  border: none;
 
   &:hover {
     background-color: $background-graphite;
@@ -228,6 +229,7 @@
   background-color: $primary-white;
   color: $secondary-cloud;
   border: 0.0625rem solid $secondary-cloud;
+  border-radius: 4px;
 
   &:active {
     border: 0.0625rem solid $primary-indigo;
@@ -242,6 +244,7 @@
   background-color: $primary-white;
   color: $secondary-cloud;
   border: 0.0625rem solid $secondary-cloud;
+  border-radius: 4px;
 
   &:active {
     border: 0.0625rem solid $primary-indigo;

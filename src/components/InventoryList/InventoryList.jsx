@@ -18,11 +18,11 @@ const InventoryList = ({ inventoryItems, onDelete }) => {
 
       {inventoryItems.map((item) => (
         <div key={item.id} className="inventory-list__row">
-          <div className="inventory-list__item">{item.name}</div>
+          <div className="inventory-list__item">{item.item_name}</div>
           <div className="inventory-list__item">{item.category}</div>
           <div className="inventory-list__item">{item.status}</div>
           <div className="inventory-list__item">{item.quantity}</div>
-          <div className="inventory-list__item">{item.warehouse}</div>
+          <div className="inventory-list__item">{item.warehouse_id}</div>
           <div className="inventory-list__item inventory-list__item--right">
             <button
               className="inventory-list__button"

@@ -22,7 +22,7 @@ const InventoryList = ({ inventoryItems, onDelete }) => {
           <div className="inventory-list__item">{item.category}</div>
           <div className="inventory-list__item">{item.status}</div>
           <div className="inventory-list__item">{item.quantity}</div>
-          <div className="inventory-list__item">{item.warehouse_id}</div>
+          <div className="inventory-list__item">{item.warehouse_name}</div>
           <div className="inventory-list__item inventory-list__item--right">
             <button
               className="inventory-list__button"

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import { useState, useEffect } from "react";
-import axios from 'axios';
-import WarehouseDeleteModal from "../../components/WarehouseDeleteModal/WarehouseDeleteModal";
-
-const baseUrl = "http://localhost:8080";
-
-const Warehouse = ({ warehouses, setWarehouses }) => {
-=======
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WarehouseList from "../../components/WarehouseList/WarehouseList"; // Import WarehouseList component
@@ -16,16 +7,10 @@ import searchIcon from "../../assets/Icons/search-24px.svg";
 
 const WarehousePage = () => {
   const [warehouses, setWarehouses] = useState([]);
->>>>>>> develop
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  //   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedWarehouseId, setSelectedWarehouseId] = useState(null);
   const [selectedWarehouseName, setSelectedWarehouseName] = useState(null);
 
-<<<<<<< HEAD
-
-
-  useEffect (() => {
-=======
   const baseUrl = "http://localhost:8080";
 
   // Fetch warehouses from the backend
@@ -39,21 +24,15 @@ const WarehousePage = () => {
   };
 
   // Open the delete modal
-  const openModal = (warehouseId) => {
-    setSelectedWarehouseId(warehouseId);
->>>>>>> develop
-    setIsModalOpen(true);
-  }, []);
+  const openModal = (warehouseId, warehouseName) => {
+    if (selectedWarehouseId) return;
 
-//   const openModal = (warehouseId) => {
-//     setSelectedWarehouseId(warehouseId);
-//     setSelectedWarehouseName(warehouseName);
-//     setIsModalOpen(true);
-//   };
+    setSelectedWarehouseId(warehouseId);
+    setSelectedWarehouseName(warehouseName);
+  };
 
   // Close the delete modal
   const closeModal = () => {
-    setIsModalOpen(false);
     setSelectedWarehouseId(null);
     setSelectedWarehouseName(null);
   };
@@ -61,14 +40,6 @@ const WarehousePage = () => {
   // Handle deleting a warehouse
   const handleDelete = async (warehouseId) => {
     try {
-<<<<<<< HEAD
-      const response = await axios.delete(`${baseUrl}/warehouses/${warehouseId}`);
-    
-      if(response.status === 200) {
-
-        alert("Warehouse deleted successfully!")
-        setWarehouses(warehouses.filter(warehouse => warehouse.id !== warehouseId));
-=======
       const response = await axios.delete(
         `${baseUrl}/warehouses/${warehouseId}`
       );
@@ -77,7 +48,6 @@ const WarehousePage = () => {
         setWarehouses(
           warehouses.filter((warehouse) => warehouse.id !== warehouseId)
         );
->>>>>>> develop
       } else {
         console.log("Failed to delete warehouse");
       }
@@ -87,35 +57,16 @@ const WarehousePage = () => {
     closeModal(); // Close modal after delete
   };
 
-<<<<<<< HEAD
-  return (
-    <>
-      <div>
-      {/* The modal should open automatically when the component mounts */}
-      <WarehouseDeleteModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        onDelete={handleDelete}
-        warehouseId={selectedWarehouseId}
-        warehouseName={selectedWarehouseName}
-      />
-    </div>
-
-
-
-
-
-
-
-      {/* add onClick handler inside the .map function for each warehouse in the list so we can target each one with the modal
-      <button onClick={() => openModal(warehouse.id)}>🗑️</button> */}
-
-      {/* {isModalOpen && (
-=======
   // Fetch warehouses when the page loads
   useEffect(() => {
     fetchWarehouses();
   }, []);
+
+  useEffect(() => {
+    if (selectedWarehouseId && selectedWarehouseName) {
+      console.log("modal should open for now:", selectedWarehouseName);
+    }
+  }, [selectedWarehouseId, selectedWarehouseName]);
 
   return (
     <div className="warehouse-page">
@@ -130,27 +81,35 @@ const WarehousePage = () => {
           + Add New Warehouse
         </button>
       </div>
-
       <WarehouseList
         warehouses={warehouses}
-        onDelete={openModal} // Pass the openModal function to handle delete
+        onDelete={(warehouseId, warehouseName) =>
+          openModal(warehouseId, warehouseName)
+        } // Pass the openModal function to handle delete
       />
-      {isModalOpen && (
->>>>>>> develop
+      {/* {selectedWarehouseId && selectedWarehouseName && (
         <WarehouseDeleteModal
-          isOpen={isModalOpen}
+          isOpen={true}
           onClose={closeModal}
           onDelete={handleDelete}
           warehouseId={selectedWarehouseId}
           warehouseName={selectedWarehouseName}
-        />
-<<<<<<< HEAD
-      )} */}
-    </>
-=======
-      )}
+        /> */}
+      {selectedWarehouseId && selectedWarehouseName
+        ? (console.log("Rendering modal..."),
+          (
+            <WarehouseDeleteModal
+              key={selectedWarehouseId}
+              isOpen={true}
+              onClose={closeModal}
+              onDelete={handleDelete}
+              warehouseId={selectedWarehouseId}
+              warehouseName={selectedWarehouseName}
+            />
+          ))
+        : null}
+      {/* )} */}
     </div>
->>>>>>> develop
   );
 };
 

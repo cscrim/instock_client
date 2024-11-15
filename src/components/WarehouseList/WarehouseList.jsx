@@ -49,7 +49,7 @@ const WarehouseList = ({ warehouses, onDelete }) => {
             </div>
             <button
               className="warehouse-list__button"
-              onClick={() => onDelete(warehouse.id)}
+              onClick={() => onDelete(warehouse.id, warehouse.warehouse_name)}
             >
               <img src={deleteIcon} alt="delete trashcan icon" />
             </button>

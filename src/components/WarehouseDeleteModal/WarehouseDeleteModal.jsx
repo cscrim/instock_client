@@ -50,4 +50,4 @@ const WarehouseDeleteModal = ({
 
 export default WarehouseDeleteModal;
 
-export default WarehouseDeleteModal;
+

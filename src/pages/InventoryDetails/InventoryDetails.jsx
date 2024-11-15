@@ -67,7 +67,7 @@ const InventoryDetails = () => {
 
       <div className="inventory-details__content">
         <div className="content__product-info">
-          <h4 className="content__title">PRODUCT DESCRIPTION:</h4>
+          <h4 className="content__title">ITEM DESCRIPTION:</h4>
           <div>{inventory.description}</div>
         </div>
 
@@ -89,13 +89,13 @@ const InventoryDetails = () => {
           </div>
 
           <div className="content__quantity">
-            <h4 className="content__title">QUANTITY IN STOCK:</h4>
+            <h4 className="content__title">QUANTITY:</h4>
             <div>{inventory.quantity}</div>
           </div>
         </div>
 
         <div className="content__warehouse">
-          <h4 className="content__title">WAREHOUSE LOCATION:</h4>
+          <h4 className="content__title">WAREHOUSE:</h4>
           <div>{inventory.warehouse_name}</div>
           <div>{inventory.warehouse_address}</div>
         </div>

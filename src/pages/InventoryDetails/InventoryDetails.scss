@@ -3,14 +3,14 @@
 @use "../../styles/partials/global" as *;
 
 .inventory-details {
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   background-color: #ffffff;
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 3px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-family: "Tittlium Web";
-  font-size: 1rem;
 
   &__header {
     display: flex;
@@ -31,7 +31,7 @@
 
       h1 {
         font-size: 2.5rem;
-        font-weight: 600;
+        font-weight: 500;
         color: #13182c;
       }
     }
@@ -65,7 +65,7 @@
     .content__category,
     .content__warehouse {
       margin-bottom: 1.5rem;
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: #555;
     }
 
@@ -77,20 +77,25 @@
 
       .content__status,
       .content__quantity {
+        display: flex;
         flex: 1;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: baseline;
       }
 
       .content__quantity {
         display: flex;
         flex-direction: column;
         text-align: right;
+        align-items: center;
       }
     }
 
     .status-badge {
       padding: 0.5rem 1rem;
       border-radius: 25px;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: bold;
       display: inline-block;
 

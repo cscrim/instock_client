@@ -1,0 +1,145 @@
+/* src/components/InventoryList/InventoryList.scss */
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
+.inventory-list {
+  padding: 0;
+  list-style-type: none;
+
+  /* Header row for tablet and desktop view */
+  &__header-row {
+    display: none; /* Hidden on mobile */
+    font-weight: bold;
+    padding: 10px;
+    background-color: $background-light-grey;
+    border-bottom: 1px solid #ddd;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    @include desktop {
+      padding: 12px 24px;
+    }
+  }
+
+  /* Row styling for individual inventory items */
+  &__row {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 15px 20px;
+    }
+
+    @include desktop {
+      padding: 20px 24px;
+    }
+  }
+
+  /* Set up each list item to align with header columns */
+  &__item {
+    margin-bottom: 5px;
+    flex: 1;
+
+    /* Set consistent width across items and headers */
+    @include tablet {
+      margin-bottom: 0;
+      flex-basis: 25%; /* Adjust to match your header structure */
+      text-align: left;
+    }
+
+    @include desktop {
+      flex-basis: 20%; /* Adjust as needed */
+    }
+  }
+
+  &__item--right {
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Mobile-only header item styling */
+  &__header-item {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: $secondary-cloud;
+
+    /* Only show on mobile */
+    &.mobile-only {
+      display: block;
+
+      @include tablet {
+        display: none; /* Hide on tablet and desktop */
+      }
+    }
+  }
+
+  &__header-item--mobile {
+    display: none;
+  }
+
+  /* Button styling for delete and edit */
+  &__button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+  }
+
+  /* Main header styling */
+  &__header {
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f2f2f2;
+
+    @include mobile-page-header;
+
+    @include tablet {
+      @include tablet-page-header;
+      padding: 10px;
+    }
+
+    @include desktop {
+      padding: 12px;
+    }
+  }
+
+  /* Form field styles */
+  input,
+  select,
+  textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+
+    @include mobile-text-field-styling;
+
+    @include tablet {
+      @include tablet-text-field-styling;
+    }
+
+    @include desktop {
+      @include tablet-text-field-styling;
+    }
+  }
+
+  /* Search input styling */
+  .search-input {
+    @include mobile-search-styling;
+
+    @include tablet {
+      @include tablet-search-styling;
+    }
+  }
+}

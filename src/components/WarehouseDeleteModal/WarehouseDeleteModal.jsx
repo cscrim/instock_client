@@ -30,8 +30,8 @@ const WarehouseDeleteModal = ({
     //   overlayClassName="modalOverlay"
     //   contentLabel="Delete Warehouse"
     // >
-    <div className="modal__container">
-        <div className="modal__content">
+    <div className="modalOverlay">
+        <div className="modalContent">
           <h1>Delete {warehouseName} warehouse?</h1>
           <h2>
             Please confirm you'd like to delete the {warehouseName} warehouse

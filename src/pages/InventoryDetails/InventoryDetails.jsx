@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { FaEdit } from "react-icons/fa"; // Import an edit icon (e.g., from react-icons)
-import "./InventoryDetails.scss";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
 const InventoryDetails = () => {
-  const { inventoryId } = useParams();
+  const { inventoryId } = useParams(); // Get inventoryId from the route params
   const [inventory, setInventory] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,16 +15,16 @@ const InventoryDetails = () => {
         const response = await fetch(`${BASE_URL}/inventory/${inventoryId}`);
         if (!response.ok) throw new Error("Could not fetch inventory item");
         const data = await response.json();
-        setInventory(data);
+        setInventory(data); // Set the fetched inventory data
       } catch (err) {
-        setError(err.message);
+        setError(err.message); // Set the error if any occurs
       } finally {
-        setLoading(false);
+        setLoading(false); // End loading state
       }
     };
 
     fetchInventory();
-  }, [inventoryId]);
+  }, [inventoryId]); // Fetch data when inventoryId changes
 
   if (loading) {
     return <p>Loading...</p>;
@@ -41,43 +39,15 @@ const InventoryDetails = () => {
   }
 
   return (
-    <div className="inventory-details">
-      <header className="inventory-details__header">
-        <div className="inventory-details__icon-left">
-          <FaEdit className="edit-icon" />
-        </div>
-        <h1 className="inventory-details__title">{inventory.item_name}</h1>
-        <div className="inventory-details__icon-right">
-          {/* Add any other icon you want to display here */}
-          <i className="icon-other"></i>
-        </div>
-      </header>
-
-      <div className="inventory-details__info">
-        <p>
-          <span className="label">Item Description:</span>{" "}
-          {inventory.description}
-        </p>
-        <p>
-          <span className="label">Category:</span> {inventory.category}
-        </p>
-        <p>
-          <span className="label">Status:</span>
-          <span
-            className={`status ${
-              inventory.status === "In Stock" ? "status--in-stock" : ""
-            }`}
-          >
-            {inventory.status}
-          </span>
-        </p>
-        <p>
-          <span className="label">Quantity:</span> {inventory.quantity}
-        </p>
-        <p>
-          <span className="label">Warehouse:</span> {inventory.warehouse_name}
-        </p>
-      </div>
+    <div>
+      <h1>{inventory.item_name}</h1>
+      <p>Quantity: {inventory.quantity}</p>
+      <p>Location: {inventory.warehouse_name}</p>
+      <p>Description: {inventory.description}</p>
+      <p>Price: ${inventory.unit_price}</p>
+      <p>
+        Total Value: ${(inventory.quantity * inventory.unit_price).toFixed(2)}
+      </p>
     </div>
   );
 };

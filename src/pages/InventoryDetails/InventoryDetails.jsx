@@ -1,90 +1,82 @@
-// src/components/InventoryDetails.jsx
-import React from "react";
-import { Link } from "react-router-dom"; // Import Link for navigation
-import editIcon from "../../assets/Icons/edit-white-24px.svg";
-import backArrow from "../../assets/Icons/arrow_back-24px.svg";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import editIcon from "../../assets/Icons/edit-24px.svg";
 import "./InventoryDetails.scss";
+
 const BASE_URL = import.meta.env.VITE_API_URL;
 
-const InventoryDetails = ({ inventory }) => {
+const InventoryDetails = () => {
+  const { inventoryId } = useParams();
+  const [inventory, setInventory] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchInventory = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/inventory/${inventoryId}`);
+        if (!response.ok) throw new Error("Could not fetch inventory item");
+        const data = await response.json();
+        setInventory(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchInventory();
+  }, [inventoryId]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!inventory) {
+    return <p>No inventory found</p>;
+  }
+
   return (
     <div className="inventory-details">
-      <div className="inventory-details__header">
-        <div className="inventory-details__name">
-          {/* Wrap back arrow in a Link to redirect to the Inventory page */}
-          <Link to="/inventory" className="inventory-details__back-link">
-            <img
-              src={backArrow}
-              className="inventory-details__back-button"
-              alt="Back arrow"
-            />
-          </Link>
-          <h1>{inventory.product_name}</h1>
+      <header className="inventory-details__header">
+        <div className="inventory-details__icon-left">
+          <editIcon className="edit-icon" />
         </div>
-
-        {/* Link for editing inventory */}
-        <Link
-          to={`${BASE_URL}/inventory/edit/${inventory.id}`}
-          className="inventory-details__edit-link"
-        >
-          <button className="inventory-details__edit-button">
-            <img
-              src={editIcon}
-              className="edit-button__icon"
-              alt="Edit pencil icon"
-            />
-          </button>
-        </Link>
-
-        <Link
-          to={`${BASE_URL}/inventory/edit/${inventory.id}`}
-          className="inventory-details__edit-link--tablet"
-        >
-          <button className="inventory-details__edit-button--tablet">
-            <img
-              src={editIcon}
-              className="edit-button__icon"
-              alt="Edit pencil icon"
-            />
-            Edit
-          </button>
-        </Link>
-      </div>
-
-      <div className="inventory-details__content">
-        <div className="content__product-info">
-          <h4 className="content__title">PRODUCT NAME:</h4>
-          <div>{inventory.product_name}</div>
+        <h1 className="inventory-details__title">{inventory.item_name}</h1>
+        <div className="inventory-details__icon-right">
+          {/* Add any other icon you want to display here */}
+          <i className="icon-other"></i>
         </div>
+      </header>
 
-        <div className="content__quantity">
-          <h4 className="content__title">QUANTITY IN STOCK:</h4>
-          <div>{inventory.quantity_in_stock}</div>
-        </div>
-
-        <div className="content__warehouse">
-          <h4 className="content__title">WAREHOUSE LOCATION:</h4>
-          <div>{inventory.warehouse_name}</div>
-          <div>{inventory.warehouse_address}</div>
-        </div>
-
-        <div className="content__supplier">
-          <h4 className="content__title">SUPPLIER DETAILS:</h4>
-          <div>{inventory.supplier_name}</div>
-          <div>{inventory.supplier_contact}</div>
-        </div>
-
-        <div className="content__price">
-          <h4 className="content__title">UNIT PRICE:</h4>
-          <div>${inventory.unit_price}</div>
-        </div>
-
-        <div className="content__value">
-          <h4 className="content__title">TOTAL INVENTORY VALUE:</h4>
-          <div>
-            ${(inventory.quantity_in_stock * inventory.unit_price).toFixed(2)}
-          </div>
-        </div>
+      <div className="inventory-details__info">
+        <p>
+          <span className="label">Item Description:</span>{" "}
+          {inventory.description}
+        </p>
+        <p>
+          <span className="label">Category:</span> {inventory.category}
+        </p>
+        <p>
+          <span className="label">Status:</span>
+          <span
+            className={`status ${
+              inventory.status === "In Stock" ? "status--in-stock" : ""
+            }`}
+          >
+            {inventory.status}
+          </span>
+        </p>
+        <p>
+          <span className="label">Quantity:</span> {inventory.quantity}
+        </p>
+        <p>
+          <span className="label">Warehouse:</span> {inventory.warehouse_name}
+        </p>
       </div>
     </div>
   );

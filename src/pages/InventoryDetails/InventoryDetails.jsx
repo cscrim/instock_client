@@ -4,7 +4,43 @@ import editIcon from "../../assets/Icons/edit-24px.svg";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import "./InventoryDetails.scss";
 
+
 const BASE_URL = import.meta.env.VITE_API_URL;
+
+const InventoryDetails = () => {
+  const { inventoryId } = useParams();
+  const [inventory, setInventory] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchInventory = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/inventory/${inventoryId}`);
+        if (!response.ok) throw new Error("Could not fetch inventory item");
+        const data = await response.json();
+        setInventory(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchInventory();
+  }, [inventoryId]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!inventory) {
+    return <p>No inventory found</p>;
+  }
 
 const InventoryDetails = () => {
   const { inventoryId } = useParams();

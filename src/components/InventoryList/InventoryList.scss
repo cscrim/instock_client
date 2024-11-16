@@ -5,6 +5,9 @@
 .inventory-list {
   padding: 0;
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
   /* Header row for tablet and desktop view */
   &__header-row {
@@ -41,6 +44,11 @@
     @include desktop {
       padding: 20px 24px;
     }
+  }
+
+  &__name-link {
+    text-decoration: none;
+    color: $primary-indigo;
   }
 
   /* Set up each list item to align with header columns */
@@ -84,15 +92,15 @@
 
   &__header-item--mobile {
     display: none;
+    position: absolute;
   }
 
   /* Button styling for delete and edit */
   &__button {
-    margin-left: 10px;
-    padding: 5px 10px;
     cursor: pointer;
     border: none;
     background-color: white;
+    width: 1.5rem;
   }
 
   /* Main header styling */
@@ -143,3 +151,32 @@
     }
   }
 }
+
+// .inventory-list__tag {
+//   display: inline-block;
+//   font-size: 0.875rem;
+//   font-weight: 600;
+//   padding: 0.25rem 0.5rem;
+//   border-radius: 1.25rem;
+//   opacity: 0.07;
+//   text-transform: uppercase;
+//   letter-spacing: 0.1em;
+// }
+
+// .in-stock {
+//   @include mobile-instock-tag; // Apply the mobile-instock-tag styles when item is in stock
+// }
+
+// .out-of-stock {
+//   @include mobile-outofstock-tag; // Apply the mobile-outofstock-tag styles when item is out of stock
+// }
+
+// @media (min-width: 768px) {
+//   .in-stock {
+//     @include tablet-instock-tag; // Apply the tablet-instock-tag styles when item is in stock
+//   }
+
+//   .out-of-stock {
+//     @include tablet-outofstock-tag; // Apply the tablet-outofstock-tag styles when item is out of stock
+//   }
+// }

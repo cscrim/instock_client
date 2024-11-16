@@ -1,11 +1,16 @@
-// src/components/WarehouseDetails.jsx
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link } from "react-router-dom";
+import InventoryList from "../InventoryList/InventoryList"; // Import InventoryList
 import editIcon from "../../assets/Icons/edit-white-24px.svg";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import "./WarehouseDetails.scss";
 
-const WarehouseDetails = ({ warehouse, onEdit }) => {
+const WarehouseDetails = ({ warehouse, inventory, onEdit }) => {
+  const handleDelete = (itemId, itemName) => {
+    // Placeholder for delete logic
+    console.log(`Delete ${itemName} with ID ${itemId}`);
+  };
+
   return (
     <div className="warehouse-details">
       <div className="warehouse-details__header">
@@ -52,7 +57,7 @@ const WarehouseDetails = ({ warehouse, onEdit }) => {
 
       <div className="warehouse-details__content">
         <div className="content__address">
-          <h4 className="content__title">WAREHOUSE ADDRESS:</h4>{" "}
+          <h4 className="content__title">WAREHOUSE ADDRESS:</h4>
           <div>{warehouse.address},</div>
           <div>
             {warehouse.city}, {warehouse.country}
@@ -71,6 +76,15 @@ const WarehouseDetails = ({ warehouse, onEdit }) => {
             <div>{warehouse.contact_email}</div>
           </div>
         </div>
+      </div>
+
+      <div className="warehouse-details__inventory">
+        <h2 className="inventory__title">Inventory</h2>
+        <InventoryList
+          inventoryItems={inventory} // Pass inventory items
+          onDelete={handleDelete} // Optional delete handler
+          hideWarehouseColumn={true} // Hide the warehouse column on this page
+        />
       </div>
     </div>
   );

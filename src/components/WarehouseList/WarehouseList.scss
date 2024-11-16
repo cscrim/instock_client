@@ -1,18 +1,20 @@
-/* src/components/WarehouseList.scss */
+/* src/components/WarehouseList/WarehouseList.scss */
 @use "../../styles/partials/variables.scss" as *;
 @use "../../styles/partials/mixins.scss" as *;
 
 .warehouse-list {
   padding: 0;
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
 
   /* Header row for tablet and desktop view */
   &__header-row {
     display: none; /* Hidden on mobile */
-    font-weight: bold;
     padding: 10px;
     background-color: $background-light-grey;
     border-bottom: 1px solid #ddd;
+    color: $secondary-slate;
 
     @include tablet {
       display: flex;
@@ -25,17 +27,20 @@
     }
   }
 
-  /* Row styling for individual warehouses */
+  /* Row styling for individual warehouse items */
   &__row {
     display: flex;
     flex-direction: column;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    color: $primary-black;
 
     @include tablet {
       flex-direction: row;
       justify-content: space-between;
       padding: 15px 20px;
+      text-align: left;
+      max-width: 100%;
     }
 
     @include desktop {
@@ -43,33 +48,37 @@
     }
   }
 
+  &__name-link {
+    text-decoration: none;
+    color: $primary-indigo;
+    font-weight: 600;
+  }
+
   /* Set up each list item to align with header columns */
   &__item {
     margin-bottom: 5px;
 
-    /* Set consistent width across items and headers */
+    /* Consistent width and alignment for table-like structure */
     @include tablet {
       margin-bottom: 0;
-      flex-basis: 25%; /* Adjust to match your header structure */
-      text-align: left;
-    }
-
-    @include desktop {
-      flex-basis: 20%; /* Adjust as needed */
+      flex: 1;
     }
   }
 
-  &__item--right {
+  &__item--actions {
     text-align: right;
     display: flex;
     justify-content: space-between;
+
+    @include tablet {
+      display: block;
+    }
   }
 
   /* Mobile-only header item styling */
   &__header-item {
-    font-weight: bold;
     margin-bottom: 5px;
-    color: $secondary-cloud;
+    color: $secondary-slate;
 
     /* Only show on mobile */
     &.mobile-only {
@@ -83,33 +92,16 @@
 
   &__header-item--mobile {
     display: none;
+    position: absolute;
   }
 
   /* Button styling for delete and edit */
   &__button {
-    margin-left: 10px;
-    padding: 5px 10px;
     cursor: pointer;
     border: none;
     background-color: white;
-  }
-
-  /* Main header styling */
-  &__header {
-    font-weight: bold;
-    padding: 10px;
-    background-color: #f2f2f2;
-
-    @include mobile-page-header;
-
-    @include tablet {
-      @include tablet-page-header;
-      padding: 10px;
-    }
-
-    @include desktop {
-      padding: 12px;
-    }
+    width: 1.5rem;
+    margin: 0 0.5rem;
   }
 
   /* Form field styles */
@@ -141,4 +133,47 @@
       @include tablet-search-styling;
     }
   }
+}
+
+/* Adjust content-box for different views */
+.warehouse-list__content-box {
+  display: flex;
+  flex-direction: row;
+
+  @include tablet {
+    display: contents; /* Remove the wrapper on tablet and desktop views */
+  }
+}
+
+.list-column {
+  display: flex;
+  flex-direction: column;
+  margin-right: 6rem;
+
+  @include tablet {
+    margin-right: 0;
+    display: contents; /* Adjust for table layout */
+  }
+}
+
+.item-chevron {
+  padding-left: 0.25rem;
+}
+
+.item-box {
+  display: flex;
+  align-items: center;
+}
+
+.header-row__title-box {
+  display: flex;
+  align-items: center;
+}
+
+.warehouse-list__header-item {
+  margin-right: 0.25rem;
+}
+
+.warehouse-list__header-item--bold {
+  font-weight: 600;
 }

@@ -22,6 +22,7 @@
 
     @include tablet {
       @include tablet-page-header;
+      flex: 3;
     }
   }
 
@@ -34,19 +35,30 @@
 
     @include tablet {
       @include tablet-search-styling;
+      margin: 0 2rem;
+      flex: 2;
     }
   }
 
   &__add-button {
     @include mobile-primary-button-styling;
     margin-bottom: 2rem;
-
+    text-decoration: none;
+    padding-top: 0.25rem;
     @include tablet {
       @include tablet-primary-button-styling;
+      margin-bottom: 0;
+      width: 11.625rem;
     }
   }
 
   &__top-box {
     border-bottom: 0.0625rem solid $secondary-cloud;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
   }
 }

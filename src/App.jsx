@@ -9,7 +9,7 @@ import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 import Inventory from "./pages/Inventory/Inventory";
 import InventoryDetails from "./pages/InventoryDetails/InventoryDetails";
 import EditInventory from "./pages/EditInventory/EditInventory";
-// import AddInventory from './pages/AddInventory/AddInventory';
+// import AddInventory from "./pages/AddInventory/AddInventory";
 
 import "./App.scss";
 

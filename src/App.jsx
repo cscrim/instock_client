@@ -7,6 +7,7 @@ import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 import Inventory from "./pages/Inventory/Inventory";
 import InventoryDetails from "./pages/InventoryDetails/InventoryDetails";
+import EditInventory from "./pages/EditInventory/EditInventory";
 
 import "./App.scss";
 
@@ -30,6 +31,10 @@ function App() {
             <Route
               path="/inventory/details/:inventoryId"
               element={<InventoryDetails />}
+            />
+            <Route
+              path="/inventory/edit/:inventoryId"
+              element={<EditInventory />}
             />
 
             {/* <Route path="/inventory/:id" element={<InventoryDetails />} />{" "} */}

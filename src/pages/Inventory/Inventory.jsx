@@ -10,6 +10,7 @@ const InventoryPage = () => {
   const [inventoryItems, setInventoryItems] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedInventoryId, setSelectedInventoryId] = useState(null);
+  const [selectedCategoryName, setSelectedCategoryName] = useState(null);
 
   const baseUrl = "http://localhost:8080";
 
@@ -24,8 +25,9 @@ const InventoryPage = () => {
   };
 
   // Open the delete modal
-  const openModal = (inventoryId) => {
+  const openModal = (inventoryId, categoryName) => {
     setSelectedInventoryId(inventoryId);
+    setSelectedCategoryName(categoryName);
     setIsModalOpen(true);
   };
 
@@ -33,6 +35,7 @@ const InventoryPage = () => {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedInventoryId(null);
+    setSelectedCategoryName(null);
   };
 
   // Handle deleting an inventory item
@@ -77,9 +80,16 @@ const InventoryPage = () => {
         </Link>
       </div>
 
-      <InventoryList
+      {/* <InventoryList
         inventoryItems={inventoryItems}
         onDelete={openModal} // Pass the openModal function to handle delete
+      /> */}
+
+      <InventoryList
+        inventoryItems={inventoryItems}
+        onDelete={(inventoryId, categoryName) =>
+          openModal(inventoryId, categoryName)
+        } 
       />
       {isModalOpen && (
         <InventoryDeleteModal
@@ -87,6 +97,7 @@ const InventoryPage = () => {
           onClose={closeModal}
           onDelete={handleDelete}
           inventoryId={selectedInventoryId}
+          categoryName={selectedCategoryName}
         />
       )}
     </div>

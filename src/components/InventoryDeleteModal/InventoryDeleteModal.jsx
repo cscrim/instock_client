@@ -5,7 +5,7 @@ const InventoryDeleteModal = ({
   onClose,
   onDelete,
   inventoryId,
-  inventoryName,
+  categoryName,
 }) => {
   if (!isOpen) return null;
 
@@ -23,10 +23,9 @@ const InventoryDeleteModal = ({
     <div className="modalWrapper">
       <div className="modalOverlay">
         <div className="modalContent">
-          <h1>Delete {inventoryName} inventory item?</h1>
+          <h1>Delete {categoryName} inventory item?</h1>
           <h2>
-            Please confirm you'd like to delete the {inventoryName} item
-            from the inventory. You won't be able to undo this action.
+            Please confirm you'd like to delete {categoryName} from the inventory. You won't be able to undo this action.
           </h2>
         </div>
 

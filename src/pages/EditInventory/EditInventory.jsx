@@ -104,111 +104,131 @@ const EditInventory = () => {
 
   return (
     <div className="edit-inventory">
-      <Link to="/inventory" className="inventory-details__back-link">
-        <img
-          src={backArrow}
-          className="inventory-details__back-button"
-          alt="Back arrow"
-        />
-      </Link>
+      <div className="edit-inventory__header">
+        <Link to="/inventory" className="inventory-details__back-link">
+          <img
+            src={backArrow}
+            className="inventory-details__back-button"
+            alt="Back arrow"
+          />
+        </Link>
 
-      <h1>Edit Inventory Item</h1>
+        <h1>Edit Inventory Item</h1>
+      </div>
 
       <form onSubmit={handleSubmit} className="edit-inventory-form">
-        <div className="form-group">
-          <label htmlFor="item_name">Item Name</label>
-          <input
-            type="text"
-            id="item_name"
-            name="item_name"
-            value={inventory.item_name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            value={inventory.description}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="category">Category</label>
-          <select
-            id="category"
-            name="category"
-            value={inventory.category}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Category</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Accessories">Accessories</option>
-          </select>
-        </div>
-
-        <h2>Item Availability</h2>
-        <div className="status-options">
-          <label>
-            <input
-              type="radio"
-              name="status"
-              value="In Stock"
-              checked={inventory.status === "In Stock"}
-              onChange={handleChange}
-            />
-            In Stock
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="status"
-              value="Out of Stock"
-              checked={inventory.status === "Out of Stock"}
-              onChange={handleChange}
-            />
-            Out of Stock
-          </label>
-        </div>
-
-        {inventory.status === "In Stock" && (
-          <div className="form-group">
-            <label htmlFor="quantity">Quantity</label>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              value={inventory.quantity}
-              onChange={handleChange}
-              required
-            />
+        <div className="item-details__container">
+          {/* Item Details Section */}
+          <div className="item-details">
+            <h2>Item Details</h2>
+            <div className="form-group">
+              <label htmlFor="item_name">Item Name</label>
+              <input
+                type="text"
+                id="item_name"
+                name="item_name"
+                value={inventory.item_name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="description">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                value={inventory.description}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="category">Category</label>
+              <select
+                id="category"
+                name="category"
+                value={inventory.category}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Category</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Accessories">Accessories</option>
+              </select>
+            </div>
           </div>
-        )}
 
-        <div className="form-group">
-          <label htmlFor="warehouse_id">Warehouse Name</label>
-          <select
-            id="warehouse_id"
-            name="warehouse_id"
-            value={inventory.warehouse_id}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Warehouse</option>
-            {warehouses.map((warehouse) => (
-              <option key={warehouse.id} value={warehouse.id}>
-                {warehouse.warehouse_name}
-              </option>
-            ))}
-          </select>
+          {/* Item Availability Section */}
+          <div className="item-availability__container">
+            <div className="item-availability">
+              <h2>Item Availability</h2>
+              <div className="status-options">
+                <div className="status-options__title">
+                  <p>Status</p>
+                </div>
+                <div className="status-options__buttons">
+                  <label>
+                    <input
+                      type="radio"
+                      name="status"
+                      value="In Stock"
+                      checked={inventory.status === "In Stock"}
+                      onChange={handleChange}
+                    />
+                    In Stock
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="status"
+                      value="Out of Stock"
+                      checked={inventory.status === "Out of Stock"}
+                      onChange={handleChange}
+                    />
+                    Out of Stock
+                  </label>
+                </div>
+              </div>
+
+              {inventory.status === "In Stock" && (
+                <div className="form-group">
+                  <label htmlFor="quantity">Quantity</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    name="quantity"
+                    value={inventory.quantity}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Warehouse Name Section */}
+            <div className="form-group">
+              <label htmlFor="warehouse_id">Warehouse Name</label>
+              <select
+                id="warehouse_id"
+                name="warehouse_id"
+                value={inventory.warehouse_id}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Warehouse</option>
+                {warehouses.map((warehouse) => (
+                  <option key={warehouse.id} value={warehouse.id}>
+                    {warehouse.warehouse_name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {error && <p className="error-message">{error}</p>}
         </div>
 
-        {error && <p className="error-message">{error}</p>}
         <div className="form-buttons">
           <button
             type="button"

@@ -132,7 +132,7 @@ const WarehouseList = ({ warehouses, onDelete }) => {
                   <div className="warehouse-list__header-item">WAREHOUSE</div>
                   <div className="item-box">
                     <Link
-                      to={`/warehouse/details/${warehouse.id}`}
+                      to={`/warehouses/details/${warehouse.id}`}
                       className="warehouse-list__name-link"
                     >
                       {warehouse.warehouse_name}
@@ -206,7 +206,7 @@ const WarehouseList = ({ warehouses, onDelete }) => {
               <img src={deleteIcon} alt="delete trashcan icon" />
             </button>
             <Link
-              to={`/warehouse/edit/${warehouse.id}`}
+              to={`/warehouses/edit/${warehouse.id}`}
               className="warehouse-list__button"
             >
               <img src={editIcon} alt="edit pencil icon" />

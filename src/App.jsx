@@ -24,7 +24,10 @@ function App() {
             <Route path="/" element={<Warehouse />} /> {/* Default route */}
             <Route path="/warehouses" element={<Warehouse />} />{" "}
             {/* Same component for /warehouses */}
-            <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
+            <Route
+              path="/warehouses/edit/:warehouseId"
+              element={<EditWarehouse />}
+            />
             <Route
               path="/warehouses/details/:id"
               element={<WarehouseDetails />}

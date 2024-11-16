@@ -24,21 +24,28 @@ const EditWarehouse = () => {
   const [success, setSuccess] = useState("");
 
   useEffect(() => {
-    // Validate that warehouseId is available
+    // Ensure warehouseId exists
     if (!warehouseId) {
       setError("Invalid warehouse ID.");
       return;
     }
 
+    // Fetch warehouse data
     const fetchWarehouse = async () => {
       try {
         const response = await axios.get(
           `${BASE_URL}/warehouses/${warehouseId}`
         );
-        setFormData(response.data); // Fill the form with fetched data
+        if (response.status === 200 && response.data) {
+          setFormData(response.data); // Populate form with warehouse data
+        } else {
+          throw new Error("Invalid response from server.");
+        }
       } catch (err) {
         console.error(err);
-        setError("Failed to load warehouse details.");
+        setError(
+          err.response?.data?.message || "Failed to load warehouse details."
+        );
       }
     };
 
@@ -54,30 +61,34 @@ const EditWarehouse = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Reset any existing errors
+    setError(""); // Reset error
     setSuccess(""); // Reset success message
 
-    // Remove created_at or any unnecessary fields before sending data
+    // Remove unnecessary fields like `created_at` before sending the data
     const { created_at, ...updatedData } = formData;
 
     try {
       const response = await axios.put(
         `${BASE_URL}/warehouses/${warehouseId}`,
-        updatedData // Send the updated data without created_at
+        updatedData
       );
-      setSuccess("Warehouse updated successfully.");
-      setFormData(response.data); // Populate form with updated data from response
+      if (response.status === 200) {
+        setSuccess("Warehouse updated successfully.");
+        setFormData(response.data); // Update form with the response data
+      } else {
+        throw new Error("Invalid response from server.");
+      }
     } catch (err) {
       console.error(err.response?.data || "Unknown error");
       setError(
         err.response?.data?.message ||
-          "Failed to update warehouse. Please check the form fields and try again."
+          "Failed to update warehouse. Please check your input."
       );
     }
   };
 
   const handleCancel = () => {
-    // Reset the form data
+    // Reset form fields and clear messages
     setFormData({
       warehouse_name: "",
       address: "",
@@ -88,7 +99,7 @@ const EditWarehouse = () => {
       contact_phone: "",
       contact_email: "",
     });
-    setError(""); // Clear error on cancel
+    setError("");
     setSuccess("Edit canceled, form reset.");
   };
 

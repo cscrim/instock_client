@@ -17,11 +17,19 @@
 
   &__title {
     @include mobile-page-header;
-    padding-bottom: 1.5rem;
     padding-top: 2.25rem;
 
+    font-size: 2.5rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+    /* padding-bottom: 1.5rem; */
+    padding-top: 2.25rem;
+    margin-left: 0;
     @include tablet {
-      @include tablet-page-header;
+      margin-left: 2rem;
+      padding-bottom: 2rem;
+      font-size: 2rem;
+      line-height: 2.5rem;
       flex: 3;
     }
   }
@@ -55,6 +63,7 @@
     border-bottom: 0.0625rem solid $secondary-cloud;
 
     @include tablet {
+      height: 7rem;
       display: flex;
       flex-direction: row;
       align-items: center;

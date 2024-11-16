@@ -17,12 +17,21 @@
 
   &__title {
     @include mobile-page-header;
-    padding-bottom: 1.5rem;
-    padding-top: 2.25rem;
 
+    font-size: 2.5rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+    /* padding-bottom: 1.5rem; */
+    padding-top: 2.25rem;
+    margin-left: 0;
     @include tablet {
       @include tablet-page-header;
+      margin-left: 2rem;
+      padding-bottom: 3rem;
       flex: 3;
+    }
+    @include desktop {
+      font-size: 3rem;
     }
   }
 
@@ -35,6 +44,7 @@
 
     @include tablet {
       @include tablet-search-styling;
+      width: 100%;
       margin: 0 2rem;
       flex: 2;
     }
@@ -42,9 +52,22 @@
 
   &__add-button {
     @include mobile-primary-button-styling;
+
+    display: flex;
+    height: 36px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    border-radius: 1.25rem;
+    color: white;
+    background-color: #2e66e5;
+    border: none;
     margin-bottom: 2rem;
     text-decoration: none;
     padding-top: 0.25rem;
+    flex-direction: row;
+    justify-content: center;
+
     @include tablet {
       @include tablet-primary-button-styling;
       margin-bottom: 0;
@@ -54,8 +77,11 @@
 
   &__top-box {
     border-bottom: 0.0625rem solid $secondary-cloud;
+    display: flex;
+    flex-direction: column;
 
     @include tablet {
+      height: 7rem;
       display: flex;
       flex-direction: row;
       align-items: center;

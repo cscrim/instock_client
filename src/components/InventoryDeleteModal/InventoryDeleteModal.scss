@@ -3,27 +3,26 @@
 @use "../../styles/partials/typography" as *;
 
 .modalWrapper {
-  // Default (Mobile) - No overlay
+
   background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed; // Position fixed to the viewport
+  position: fixed; 
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1000; // Ensure it sits above other content
+  z-index: 1000; 
   flex-direction: column;
 
-  // Tablet and larger screens - Apply the semi-transparent overlay
   @media (min-width: 768px) {
     background: rgba(
       0,
       0,
       0,
-      0.5
-    ); // Semi-transparent black overlay for tablet and up
+      0.7
+    ); 
   }
 }
 
@@ -47,6 +46,11 @@
     flex-direction: column;
     height: 400px;
     width: 800px;
+  }
+
+  @include desktop {
+    width: 900px;
+    height: 350px;
   }
 }
 
@@ -75,11 +79,19 @@ h1 {
   @include tablet {
     margin-top: 2rem;
   }
+
+  @include desktop {
+    margin-left: 0;
+  }
 }
 
 h2 {
   margin-bottom: 2rem;
   margin-left: 2rem;
+
+  @include desktop {
+    margin-left: 0;
+  }
 }
 
 .modalButtons {
@@ -93,6 +105,10 @@ h2 {
     margin-top: 2rem;
     justify-content: flex-end;
     gap: 1rem;
+  }
+
+  @include desktop {
+    padding-right: 4rem;
   }
 }
 

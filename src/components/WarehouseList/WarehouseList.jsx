@@ -206,7 +206,7 @@ const WarehouseList = ({ warehouses, onDelete }) => {
               <img src={deleteIcon} alt="delete trashcan icon" />
             </button>
             <Link
-              to={`/warehouse/edit/${warehouse.id}`}
+              to={`/warehouses/edit/${warehouse.id}`}
               className="warehouse-list__button"
             >
               <img src={editIcon} alt="edit pencil icon" />

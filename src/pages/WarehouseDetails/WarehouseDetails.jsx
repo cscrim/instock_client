@@ -1,38 +1,44 @@
-// src/pages/WarehouseDetailsPage.jsx
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom"; // useParams for URL params, useNavigate for navigation
-import axios from "axios"; // Import axios
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
 import "./WarehouseDetails.scss";
 
 const WarehouseDetailsPage = () => {
   const { id } = useParams(); // Get warehouse id from URL
-  const navigate = useNavigate(); // For navigating programmatically
-  const [warehouse, setWarehouse] = useState(null);
-  const [loading, setLoading] = useState(true); // To show loading state
-  const [error, setError] = useState(null); // To handle errors
+  const navigate = useNavigate(); // For navigation
+  const [warehouse, setWarehouse] = useState(null); // State for warehouse details
+  const [inventory, setInventory] = useState([]); // State for inventory data
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null); // Error state
 
   const baseUrl = "http://localhost:8080";
 
-  // Fetch warehouse details when the page loads
+  // Fetch warehouse details and inventory when the page loads
   useEffect(() => {
-    const fetchWarehouseDetails = async () => {
+    const fetchData = async () => {
       try {
-        // Make the API call using axios
-        const response = await axios.get(`${baseUrl}/warehouses/${id}`);
+        setLoading(true); // Start loading
+        // Fetch warehouse details
+        const warehouseResponse = await axios.get(
+          `${baseUrl}/warehouses/${id}`
+        );
+        setWarehouse(warehouseResponse.data);
 
-        // Set the warehouse data from the response
-        setWarehouse(response.data);
+        // Fetch inventory for the warehouse
+        const inventoryResponse = await axios.get(
+          `${baseUrl}/warehouses/${id}/inventory`
+        );
+        setInventory(inventoryResponse.data);
       } catch (err) {
-        // Handle any errors from the API call
+        // Handle errors
         setError(err.response ? err.response.data.message : err.message);
       } finally {
-        // Set loading to false after the data is fetched
-        setLoading(false);
+        setLoading(false); // Stop loading
       }
     };
 
-    fetchWarehouseDetails();
+    fetchData();
   }, [id]);
 
   const handleEditClick = () => {
@@ -41,16 +47,20 @@ const WarehouseDetailsPage = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>; // Show loading state while fetching data
+    return <div>Loading...</div>; // Show loading state
   }
 
   if (error) {
-    return <div>{error}</div>; // Show error message if something goes wrong
+    return <div>Error: {error}</div>; // Show error message
   }
 
   return (
     <div className="warehouse-details-page">
-      <WarehouseDetails warehouse={warehouse} onEdit={handleEditClick} />
+      <WarehouseDetails
+        warehouse={warehouse}
+        inventory={inventory} // Pass inventory data as a prop
+        onEdit={handleEditClick}
+      />
     </div>
   );
 };

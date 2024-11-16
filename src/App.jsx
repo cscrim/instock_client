@@ -21,9 +21,9 @@ function App() {
         <main>
           <Routes>
             {/* Warehouse Routes */}
-            <Route path="/" element={<Warehouse />} /> {/* Default route */}
+            <Route path="/" element={<Warehouse />} /> 
             <Route path="/warehouses" element={<Warehouse />} />{" "}
-            {/* Same component for /warehouses */}
+           
             <Route
               path="/warehouses/edit/:warehouseId"
               element={<EditWarehouse />}

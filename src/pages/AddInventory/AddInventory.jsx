@@ -4,22 +4,6 @@ import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import axios from "axios";
 import "./AddInventory.scss";
 
-
-// const FormInput = ({ label, name, value, onChange, error, type = "text" }) => (
-//   <div className="form-group">
-//     <label>{label}</label>
-//     <input
-//       type={type}
-//       name={name}
-//       value={value}
-//       onChange={onChange}
-//       aria-label={label}
-//       className={error ? "error" : ""}
-//     />
-//     {error && <p className="error">{error}</p>}
-//   </div>
-// );
-
 const AddInventory = () => {
   const navigate = useNavigate();
 

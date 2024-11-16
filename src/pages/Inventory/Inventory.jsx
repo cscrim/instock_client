@@ -14,7 +14,7 @@ const InventoryPage = () => {
 
   const baseUrl = "http://localhost:8080";
 
-  // Fetch inventory items from the backend
+ 
   const fetchInventoryItems = async () => {
     try {
       const response = await axios.get(`${baseUrl}/inventory`);
@@ -24,21 +24,18 @@ const InventoryPage = () => {
     }
   };
 
-  // Open the delete modal
   const openModal = (inventoryId, categoryName) => {
     setSelectedInventoryId(inventoryId);
     setSelectedCategoryName(categoryName);
     setIsModalOpen(true);
   };
 
-  // Close the delete modal
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedInventoryId(null);
     setSelectedCategoryName(null);
   };
 
-  // Handle deleting an inventory item
   const handleDelete = async (inventoryId) => {
     try {
       const response = await axios.delete(
@@ -55,10 +52,9 @@ const InventoryPage = () => {
     } catch (error) {
       console.log("Error deleting inventory item:", error);
     }
-    closeModal(); // Close modal after delete
+    closeModal(); 
   };
 
-  // Fetch inventory items when the page loads
   useEffect(() => {
     fetchInventoryItems();
   }, []);
@@ -72,18 +68,10 @@ const InventoryPage = () => {
           className="inventory-page__search-input"
           placeholder="Search..."
         ></input>
-        {/* <button type="submit" className="inventory-page__add-button">
-          + Add New Item
-        </button> */}
         <Link to="/inventory/add" className="inventory-page__add-button">
           + Add New Item
         </Link>
       </div>
-
-      {/* <InventoryList
-        inventoryItems={inventoryItems}
-        onDelete={openModal} // Pass the openModal function to handle delete
-      /> */}
 
       <InventoryList
         inventoryItems={inventoryItems}

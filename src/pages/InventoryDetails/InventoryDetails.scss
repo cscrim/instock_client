@@ -1,0 +1,113 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.inventory-details {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Tittlium Web";
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 1rem;
+
+    .inventory-details__back-and-title {
+      display: flex;
+      align-items: center;
+
+      .inventory-details__back-link {
+        display: inline-block;
+        padding: 0.5rem;
+        margin-right: 1rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 500;
+        color: #13182c;
+      }
+    }
+
+    .inventory-details__edit-link {
+      display: inline-block;
+
+      .inventory-details__edit-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .inventory-details__edit-icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__content {
+    margin-top: 2rem;
+
+    .content__title {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .content__product-info,
+    .content__category,
+    .content__warehouse {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .content__status-quantity {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 1rem;
+
+      .content__status,
+      .content__quantity {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: baseline;
+      }
+
+      .content__quantity {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        align-items: center;
+      }
+    }
+
+    .status-badge {
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      display: inline-block;
+
+      &.in-stock {
+        background-color: #e0f7e0;
+        color: #2e7d32;
+      }
+
+      &.out-of-stock {
+        background-color: #ffe5e5;
+        color: #d32f2f;
+      }
+    }
+  }
+}

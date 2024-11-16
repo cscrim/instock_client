@@ -5,18 +5,23 @@ import "./Header.scss";
 function Header() {
   return (
     <section className="header-container">
-    <header className="header">
-      <div className="header__img-container">
-        <Link to="/">
-          <img src={logo} alt="Instock" className="header__logo" />
-        </Link>
-      </div>
-      <nav className="header__nav">
-        <button className="header__tab header__tab--active">Warehouses</button>
-        <button className="header__tab">Inventory</button>
-      </nav>
-    </header>
-
+      <header className="header">
+        <div className="header__img-container">
+          <Link to="/">
+            <img src={logo} alt="Instock" className="header__logo" />
+          </Link>
+        </div>
+        <nav className="header__nav">
+          {/* Link to /warehouses */}
+          <Link to="/warehouses" className="header__tab header__tab--active">
+            Warehouses
+          </Link>
+          {/* Link to /inventory */}
+          <Link to="/inventory" className="header__tab">
+            Inventory
+          </Link>
+        </nav>
+      </header>
     </section>
   );
 }

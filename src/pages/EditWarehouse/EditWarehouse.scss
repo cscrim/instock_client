@@ -120,10 +120,12 @@
   &__subheader {
     @include mobile-subheader;
     font-weight: 600;
+    margin: 2rem 0;
+    font-size: 1.3rem;
+    color: #13182c;
 
     @include tablet {
-      margin-bottom: 2rem;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       line-height: 1.75rem;
       font-weight: 600;
     }

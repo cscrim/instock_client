@@ -2,54 +2,53 @@
 @use "../../styles/partials/mixins.scss" as *;
 
 .edit-inventory {
-  width: 90%;
-  max-width: 800px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 3px;
 
   h1 {
-    border-bottom: 1px solid $secondary-cloud;
     font-size: 24px;
-    padding-bottom: 1rem;
     color: #333;
+    margin-left: 0;
+    margin-top: 0;
   }
 
   h2 {
-    border-top: 1px solid #ddd;
+    // border-top: 1px solid #ddd;
     font-size: 1.5rem;
     font-weight: 600;
     color: #13182c;
     padding-top: 1rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
+    margin-left: 0;
   }
 
   .edit-inventory-form {
     display: flex;
     flex-direction: column;
+    border-radius: 4px;
 
     .form-group {
       margin-bottom: 15px;
 
       label {
+        margin-top: 1rem;
         font-weight: bold;
         display: block;
         margin-bottom: 5px;
         color: #333;
+        border-radius: 4px;
       }
 
       input,
       textarea,
       select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-        box-sizing: border-box;
-
+        @include mobile-text-field-styling;
+        color: #13182c;
+        border-radius: 20px;
         &:focus {
           border-color: #007bff;
           outline: none;
@@ -71,10 +70,95 @@
       }
     }
 
-    .status-options {
+    .form-buttons {
       display: flex;
       justify-content: space-between;
+      margin-top: 20px;
+      @include tablet {
+        display: flex;
+        margin-top: 20px;
+        flex-direction: row-reverse;
+        justify-content: unset;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &.cancel-button {
+          @include mobile-secondary-button-styling;
+
+          &:hover {
+            background-color: #e53935;
+          }
+          @include tablet {
+            width: 72px;
+            height: 38px;
+          }
+        }
+
+        &.save-button {
+          @include mobile-primary-button-styling;
+
+          &:hover {
+            background-color: #45a049;
+          }
+          @include tablet {
+            width: 72px;
+            height: 38px;
+          }
+        }
+      }
+    }
+  }
+
+  .error-message {
+    color: #f44336;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .edit-inventory__header {
+    border-bottom: 1px solid $secondary-cloud;
+    gap: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .item-details {
+    .form-group {
+      &:nth-child(1) {
+        margin-top: 10px;
+      }
+
+      &:nth-child(2) {
+        textarea {
+          min-height: 80px;
+        }
+      }
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+  }
+
+  .item-availability {
+    .status-options {
+      width: 28rem;
+      display: flex;
       margin-top: 5px;
+      flex-direction: column;
+      justify-content: space-between;
+      @include tablet {
+        flex-direction: column;
+        width: 0;
+      }
 
       label {
         font-size: 16px;
@@ -87,44 +171,61 @@
       }
     }
 
-    .form-buttons {
-      display: flex;
-      justify-content: space-between;
+    .form-group {
       margin-top: 20px;
 
-      button {
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;
+      label {
+        font-weight: bold;
+      }
 
-        &.cancel-button {
-          background-color: #f44336;
-          color: white;
-
-          &:hover {
-            background-color: #e53935;
-          }
-        }
-
-        &.save-button {
-          background-color: #4caf50;
-          color: white;
-
-          &:hover {
-            background-color: #45a049;
-          }
-        }
+      input[type="number"] {
+        width: 100%;
       }
     }
   }
+}
 
-  .error-message {
-    color: #f44336;
-    font-size: 14px;
-    margin-top: 10px;
-    text-align: center;
+.item-details__container {
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.status-options__buttons {
+  gap: 10%;
+  display: flex;
+  @include tablet {
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.status-options {
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.status-options__title {
+  font-weight: bold;
+}
+
+// .item-availability__container {
+//   width: 50%;
+// }
+.item-details {
+  @include tablet {
+    width: 100%;
+    margin-right: 3rem;
+    border-right: 1px solid #ddd;
+    padding-right: 3rem;
+  }
+}
+.item-availability__container {
+  @include tablet {
+    width: 100%;
   }
 }

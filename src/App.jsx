@@ -29,7 +29,7 @@ function App() {
               element={<EditWarehouse />}
             />
             <Route
-              path="/warehouses/details/:id"
+              path="/warehouse/details/:id"
               element={<WarehouseDetails />}
             />
             <Route path="/warehouses/add" element={<AddWarehouse />} />

@@ -132,7 +132,7 @@ const WarehouseList = ({ warehouses, onDelete }) => {
                   <div className="warehouse-list__header-item">WAREHOUSE</div>
                   <div className="item-box">
                     <Link
-                      to={`/warehouse/details/${warehouse.id}`}
+                      to={`/warehouses/details/${warehouse.id}`}
                       className="warehouse-list__name-link"
                     >
                       {warehouse.warehouse_name}

@@ -4,7 +4,7 @@
 // import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 // import editIcon from "../../assets/Icons/edit-24px.svg";
 
-// const InventoryList = ({ inventoryItems, onDelete }) => {
+// const InventoryList = ({ inventoryItems, onDelete, hideWarehouseColumn }) => {
 //   return (
 //     <div className="inventory-list">
 //       {/* Header row for tablet and desktop view */}
@@ -16,7 +16,6 @@
 //         {!hideWarehouseColumn && (
 //           <div className="inventory-list__header-item">WAREHOUSE</div>
 //         )}
-//         <div className="inventory-list__header-item">WAREHOUSE</div>
 //         <div className="inventory-list__header-item">ACTIONS</div>
 //       </div>
 
@@ -38,7 +37,7 @@
 //             <div className="inventory-list__header-item mobile-only">
 //               CATEGORY
 //             </div>
-//             <div>{item.category}</div>
+//             <div className="item-value">{item.category}</div>
 //           </div>
 //           <div className="inventory-list__item">
 //             <div className="inventory-list__header-item mobile-only">
@@ -50,12 +49,14 @@
 //             <div className="inventory-list__header-item mobile-only">QTY</div>
 //             <div>{item.quantity}</div>
 //           </div>
-//           <div className="inventory-list__item">
-//             <div className="inventory-list__header-item mobile-only">
-//               WAREHOUSE
+//           {!hideWarehouseColumn && (
+//             <div className="inventory-list__item">
+//               <div className="inventory-list__header-item mobile-only">
+//                 WAREHOUSE
+//               </div>
+//               <div>{item.warehouse_name}</div>
 //             </div>
-//             <div>{item.warehouse_name}</div>
-//           </div>
+//           )}
 
 //           <div className="inventory-list__item inventory-list__item--right">
 //             <div className="inventory-list__header-item inventory-list__header-item--mobile">
@@ -128,7 +129,7 @@ const InventoryList = ({ inventoryItems, onDelete, hideWarehouseColumn }) => {
             <div className="inventory-list__header-item mobile-only">
               STATUS
             </div>
-            <div>{item.status}</div>
+            <div className="test">{item.status}</div>
           </div>
           <div className="inventory-list__item">
             <div className="inventory-list__header-item mobile-only">QTY</div>

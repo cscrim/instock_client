@@ -1,5 +1,6 @@
 // src/pages/InventoryPage.jsx
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import InventoryList from "../../components/InventoryList/InventoryList"; // Import InventoryList component
 import InventoryDeleteModal from "../../components/InventoryDeleteModal/InventoryDeleteModal"; // Import the modal component
@@ -68,9 +69,12 @@ const InventoryPage = () => {
           className="inventory-page__search-input"
           placeholder="Search..."
         ></input>
-        <button type="submit" className="inventory-page__add-button">
+        {/* <button type="submit" className="inventory-page__add-button">
           + Add New Item
-        </button>
+        </button> */}
+        <Link to="/inventory/add" className="inventory-page__add-button">
+          + Add New Item
+        </Link>
       </div>
 
       <InventoryList

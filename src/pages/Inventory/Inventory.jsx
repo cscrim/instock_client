@@ -69,7 +69,7 @@ const InventoryPage = () => {
           placeholder="Search..."
         ></input>
         <button type="submit" className="inventory-page__add-button">
-          + Add New Inventory Item
+          + Add New Item
         </button>
       </div>
 

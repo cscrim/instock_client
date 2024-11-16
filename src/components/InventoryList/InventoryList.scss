@@ -7,15 +7,14 @@
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
 
   /* Header row for tablet and desktop view */
   &__header-row {
     display: none; /* Hidden on mobile */
-    font-weight: bold;
     padding: 10px;
     background-color: $background-light-grey;
     border-bottom: 1px solid #ddd;
+    color: $secondary-slate;
 
     @include tablet {
       display: flex;
@@ -34,11 +33,14 @@
     flex-direction: column;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    color: $primary-black;
 
     @include tablet {
       flex-direction: row;
       justify-content: space-between;
       padding: 15px 20px;
+      text-align: left;
+      max-width: 100%;
     }
 
     @include desktop {
@@ -54,31 +56,29 @@
   /* Set up each list item to align with header columns */
   &__item {
     margin-bottom: 5px;
-    flex: 1;
 
-    /* Set consistent width across items and headers */
+    /* Consistent width and alignment for table-like structure */
     @include tablet {
       margin-bottom: 0;
-      flex-basis: 25%; /* Adjust to match your header structure */
-      text-align: left;
-    }
-
-    @include desktop {
-      flex-basis: 20%; /* Adjust as needed */
+      flex: 1;
+      //
     }
   }
 
-  &__item--right {
+  &__item--actions {
     text-align: right;
     display: flex;
     justify-content: space-between;
+
+    @include tablet {
+      display: block;
+    }
   }
 
   /* Mobile-only header item styling */
   &__header-item {
-    font-weight: bold;
     margin-bottom: 5px;
-    color: $secondary-cloud;
+    color: $secondary-slate;
 
     /* Only show on mobile */
     &.mobile-only {
@@ -101,24 +101,7 @@
     border: none;
     background-color: white;
     width: 1.5rem;
-  }
-
-  /* Main header styling */
-  &__header {
-    font-weight: bold;
-    padding: 10px;
-    background-color: #f2f2f2;
-
-    @include mobile-page-header;
-
-    @include tablet {
-      @include tablet-page-header;
-      padding: 10px;
-    }
-
-    @include desktop {
-      padding: 12px;
-    }
+    margin: 0 0.5rem;
   }
 
   /* Form field styles */
@@ -152,31 +135,61 @@
   }
 }
 
-// .inventory-list__tag {
-//   display: inline-block;
-//   font-size: 0.875rem;
-//   font-weight: 600;
-//   padding: 0.25rem 0.5rem;
-//   border-radius: 1.25rem;
-//   opacity: 0.07;
-//   text-transform: uppercase;
-//   letter-spacing: 0.1em;
-// }
+.item__instock {
+  @include mobile-instock-tag;
 
-// .in-stock {
-//   @include mobile-instock-tag; // Apply the mobile-instock-tag styles when item is in stock
-// }
+  @include tablet {
+    @include tablet-instock-tag;
+  }
+}
 
-// .out-of-stock {
-//   @include mobile-outofstock-tag; // Apply the mobile-outofstock-tag styles when item is out of stock
-// }
+.item__outstock {
+  @include mobile-outofstock-tag;
 
-// @media (min-width: 768px) {
-//   .in-stock {
-//     @include tablet-instock-tag; // Apply the tablet-instock-tag styles when item is in stock
-//   }
+  @include tablet {
+    @include tablet-outofstock-tag;
+  }
+}
 
-//   .out-of-stock {
-//     @include tablet-outofstock-tag; // Apply the tablet-outofstock-tag styles when item is out of stock
-//   }
-// }
+/* Adjust content-box for different views */
+.inventory-list__content-box {
+  display: flex;
+  flex-direction: row;
+
+  @include tablet {
+    display: contents; /* Remove the wrapper on tablet and desktop views */
+  }
+}
+
+.list-column {
+  display: flex;
+  flex-direction: column;
+  margin-right: 6rem;
+
+  @include tablet {
+    margin-right: 0;
+    display: contents; /* Adjust for table layout */
+  }
+}
+
+.item-chevron {
+  padding-left: 0.25rem;
+}
+
+.item-box {
+  display: flex;
+  align-items: center;
+}
+
+.inventory-list__header-item--qty {
+  width: 100px;
+}
+
+.header-row__title-box {
+  display: flex;
+  align-items: center;
+}
+
+.inventory-list__header-item {
+  margin-right: 0.25rem;
+}

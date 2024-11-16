@@ -15,11 +15,13 @@
 @mixin mobile-page-header {
   font-size: 1.75rem;
   line-height: 2.25rem;
+  font-weight: 600;
 }
 
 @mixin mobile-subheader {
   font-size: 1.25rem;
   line-height: 1.75rem;
+  font-weight: 600;
 }
 
 @mixin mobile-labels {
@@ -127,6 +129,7 @@
   color: white;
   background-color: $primary-indigo;
   border: none;
+  width: 40%;
 
   &:hover {
     background-color: $background-graphite;
@@ -229,7 +232,7 @@
   background-color: $primary-white;
   color: $secondary-cloud;
   border: 0.0625rem solid $secondary-cloud;
-  border-radius: 4px;
+  border-radius: 1.25rem;
 
   &:active {
     border: 0.0625rem solid $primary-indigo;
@@ -244,7 +247,7 @@
   background-color: $primary-white;
   color: $secondary-cloud;
   border: 0.0625rem solid $secondary-cloud;
-  border-radius: 4px;
+  border-radius: 1.25rem;
 
   &:active {
     border: 0.0625rem solid $primary-indigo;
@@ -261,20 +264,24 @@
 }
 
 @mixin mobile-instock-tag {
-  height: 1.5rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  border-radius: 1.25rem;
-  background-color: $supporting-green;
-  opacity: 0.07;
+  height: 1.5rem; // Fixed height for consistent appearance
+  padding-left: 0.5rem; // Space inside left
+  padding-right: 0.5rem; // Space inside right
+  border-radius: 1.25rem; // Rounded corners
+  background-color: $supporting-green-opacity; // Background color with opacity
+  color: $supporting-green; // Text color
+  display: inline-block; // Ensure the element only takes up as much space as needed
+  text-align: center; // Center-align text
 }
 
 @mixin tablet-instock-tag {
   height: 1.625rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  background-color: $supporting-green;
-  opacity: 0.07;
+  background-color: $supporting-green-opacity;
+  color: $supporting-green;
+  display: inline-block; // Ensure the element only takes up as much space as needed
+  text-align: center; // Center-align text
 }
 
 @mixin mobile-outofstock-tag {
@@ -282,14 +289,23 @@
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   border-radius: 1.25rem;
-  background-color: $supporting-green;
-  opacity: 0.07;
+  background-color: $supporting-red-opacity;
+  color: $supporting-red;
+  display: inline-block; // Ensure the element only takes up as much space as needed
+  text-align: center; // Center-align text
 }
 
 @mixin tablet-outofstock-tag {
   height: 1.625rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  background-color: $supporting-green;
-  opacity: 0.07;
+  background-color: $supporting-red-opacity;
+  color: $supporting-red;
+  display: inline-block; // Ensure the element only takes up as much space as needed
+  text-align: center; // Center-align text
+}
+
+@mixin divider {
+  border-bottom: 0.0625rem solid $secondary-cloud;
+  margin: 1rem;
 }

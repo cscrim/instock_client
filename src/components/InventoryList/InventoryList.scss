@@ -1,8 +1,8 @@
-/* src/components/WarehouseList/WarehouseList.scss */
+/* src/components/InventoryList/InventoryList.scss */
 @use "../../styles/partials/variables.scss" as *;
 @use "../../styles/partials/mixins.scss" as *;
 
-.warehouse-list {
+.inventory-list {
   padding: 0;
   list-style-type: none;
   display: flex;
@@ -27,7 +27,7 @@
     }
   }
 
-  /* Row styling for individual warehouse items */
+  /* Row styling for individual inventory items */
   &__row {
     display: flex;
     flex-direction: column;
@@ -51,7 +51,6 @@
   &__name-link {
     text-decoration: none;
     color: $primary-indigo;
-    font-weight: 600;
   }
 
   /* Set up each list item to align with header columns */
@@ -62,6 +61,7 @@
     @include tablet {
       margin-bottom: 0;
       flex: 1;
+      //
     }
   }
 
@@ -135,8 +135,24 @@
   }
 }
 
+.item__instock {
+  @include mobile-instock-tag;
+
+  @include tablet {
+    @include tablet-instock-tag;
+  }
+}
+
+.item__outstock {
+  @include mobile-outofstock-tag;
+
+  @include tablet {
+    @include tablet-outofstock-tag;
+  }
+}
+
 /* Adjust content-box for different views */
-.warehouse-list__content-box {
+.inventory-list__content-box {
   display: flex;
   flex-direction: row;
 
@@ -165,15 +181,15 @@
   align-items: center;
 }
 
+.inventory-list__header-item--qty {
+  width: 100px;
+}
+
 .header-row__title-box {
   display: flex;
   align-items: center;
 }
 
-.warehouse-list__header-item {
+.inventory-list__header-item {
   margin-right: 0.25rem;
-}
-
-.warehouse-list__header-item--bold {
-  font-weight: 600;
 }

@@ -1,7 +1,8 @@
 @use "/src/styles/partials/variables" as *;
 @use "/src/styles/partials/mixins" as *;
 @use "/src/styles/partials/global" as *;
-// @use ""
+
+// Global Reset
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,7 +17,7 @@ body {
   );
   min-height: 100vh;
   margin: 0;
-  font-family: "Titillium Web";
+  font-family: "Titillium Web"; // Set the default font family for the body
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +90,9 @@ body {
     }
   }
 
+  /* Style for Tabs (Warehouses and Inventory) */
   &__tab {
+    font-family: "Titillium Web", sans-serif; // Apply Titillium font-family
     font-weight: bold;
     background: none;
     border: none;
@@ -97,12 +100,14 @@ body {
     border-radius: 20px;
     font-size: 1rem;
     color: $secondary-cloud;
-    transition: color 0.3s ease;
+    text-decoration: none; // Remove underline
+    transition: color 0.3s ease, background-color 0.3s ease;
     width: auto;
     text-align: center;
 
     &:hover {
       color: $primary-white;
+      background-color: $primary-black; // Apply background change on hover
     }
 
     &--active {

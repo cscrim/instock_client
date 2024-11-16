@@ -90,8 +90,9 @@ const EditInventory = () => {
         return;
       }
 
-      // Redirect to updated inventory details
-      navigate(`/inventory/${inventoryId}`);
+      // Display success alert and redirect to inventory details page
+      alert("Inventory item updated successfully!");
+      navigate(`/inventory/details/${inventoryId}`);
     } catch (err) {
       setError("An error occurred while updating the inventory item.");
     }
@@ -191,6 +192,20 @@ const EditInventory = () => {
 
         <div className="form-group">
           <label htmlFor="warehouse_id">Warehouse Name</label>
+          <select
+            id="warehouse_id"
+            name="warehouse_id"
+            value={inventory.warehouse_id}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Warehouse</option>
+            {warehouses.map((warehouse) => (
+              <option key={warehouse.id} value={warehouse.id}>
+                {warehouse.warehouse_name}
+              </option>
+            ))}
+          </select>
         </div>
 
         {error && <p className="error-message">{error}</p>}

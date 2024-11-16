@@ -46,7 +46,6 @@
   /* Set up each list item to align with header columns */
   &__item {
     margin-bottom: 5px;
-    flex: 1;
 
     /* Set consistent width across items and headers */
     @include tablet {

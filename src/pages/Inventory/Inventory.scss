@@ -22,6 +22,7 @@
 
     @include tablet {
       @include tablet-page-header;
+      flex: 3;
     }
   }
 
@@ -35,7 +36,7 @@
     @include tablet {
       @include tablet-search-styling;
       margin: 0 2rem;
-      width: 40%;
+      flex: 2;
     }
   }
 
@@ -46,6 +47,7 @@
     @include tablet {
       @include tablet-primary-button-styling;
       margin-bottom: 0;
+      flex: 1;
     }
   }
 

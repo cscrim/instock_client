@@ -128,11 +128,22 @@ h2 {
   margin-right: 1rem;
   margin-bottom: 2rem;
   @include mobile-delete-button-styling;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $background-graphite;
+  }
 }
 
 .cancel {
   margin-left: 1rem;
   @include mobile-secondary-button-styling;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid $primary-indigo;
+    color: $primary-indigo;
+  }
 }
 
 @include tablet {

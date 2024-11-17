@@ -25,19 +25,15 @@
     padding: 0.5rem;
 
     @include tablet {
-      display: none;
-    }
-  }
-
-  &__edit-button--tablet {
-    display: none;
-
-    @include tablet {
       @include tablet-primary-button-styling;
       display: block;
       display: flex;
       align-items: center;
     }
+  }
+
+  &__edit-button__text {
+    display: none;
   }
 
   &__back-button {

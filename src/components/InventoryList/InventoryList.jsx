@@ -143,11 +143,11 @@ const InventoryList = ({ inventoryItems, onDelete, hideWarehouseColumn }) => {
                   {item.status}
                 </div>
               </div>
-              <div className="inventory-list__item inventory-list__item--margin1">
+              <div className="inventory-list__item inventory-list__item--padding">
                 {item.quantity}
               </div>
               {!hideWarehouseColumn && (
-                <div className="inventory-list__item inventory-list__item--margin1">
+                <div className="inventory-list__item inventory-list__item--padding">
                   {item.warehouse_name}
                 </div>
               )}

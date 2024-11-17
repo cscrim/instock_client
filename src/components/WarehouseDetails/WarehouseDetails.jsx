@@ -44,14 +44,14 @@ const WarehouseDetails = ({ warehouse, inventory, onEdit }) => {
           to={`/warehouses/edit/${warehouse.id}`}
           className="warehouse-details__edit-link--tablet"
         >
-          <button className="warehouse-details__edit-button--tablet">
+          <div className="warehouse-details__edit-button--tablet">
             <img
               src={editIcon}
               className="edit-button__icon"
               alt="edit pencil icon"
             />
             Edit
-          </button>
+          </div>
         </Link>
       </div>
 

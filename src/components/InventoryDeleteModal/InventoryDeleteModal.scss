@@ -15,7 +15,7 @@
   bottom: 0;
   z-index: 1000; 
   flex-direction: column;
-  
+
   @media (min-width: 768px) {
     background: rgba(
       0,
@@ -69,7 +69,6 @@
     width: 60%;
     max-width: 600px;
   }
-
 }
 
 h1 {

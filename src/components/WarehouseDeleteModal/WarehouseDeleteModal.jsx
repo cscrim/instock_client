@@ -1,7 +1,5 @@
 import "./WarehouseDeleteModal.scss";
-// import Modal from "react-modal";
 
-// Modal.setAppElement("#root");
 
 const WarehouseDeleteModal = ({
   isOpen,
@@ -23,14 +21,7 @@ const WarehouseDeleteModal = ({
   };
 
   return (
-    // <Modal
-    //   isOpen={isOpen}
-    //   onRequestClose={onClose}
-    //   className="modalContent"
-    //   overlayClassName="modalOverlay"
-    //   contentLabel="Delete Warehouse"
-    // >
-
+   
     <div className="modalWrapper">
     <div className="modalOverlay">
         <div className="modalContent">

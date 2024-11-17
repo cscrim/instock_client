@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 const WarehousePage = () => {
   const [warehouses, setWarehouses] = useState([]);
-  //   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedWarehouseId, setSelectedWarehouseId] = useState(null);
   const [selectedWarehouseName, setSelectedWarehouseName] = useState(null);
 
@@ -88,7 +87,7 @@ const WarehousePage = () => {
           openModal(warehouseId, warehouseName)
         } // Pass the openModal function to handle delete
       />
-   
+
       {selectedWarehouseId && selectedWarehouseName
         ? (console.log("Rendering modal..."),
           (

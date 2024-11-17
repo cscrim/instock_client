@@ -53,7 +53,13 @@ const InventoryList = ({ inventoryItems, hideWarehouseColumn, onDelete }) => {
               </div>
               <div className="inventory-list__item">
                 <div className="inventory-list__header-item">STATUS</div>
-                <div className={`item__${item.status.toLowerCase()}`}>
+                <div
+                  className={`item__${item.status.toLowerCase()} ${
+                    item.status === "Out of Stock"
+                      ? "item--outstock"
+                      : "item--instock"
+                  }`}
+                >
                   {item.status}
                 </div>
               </div>
@@ -150,7 +156,13 @@ const InventoryList = ({ inventoryItems, hideWarehouseColumn, onDelete }) => {
                 <td>{item.category}</td>
                 <td>{item.quantity}</td>
                 <td>
-                  <span className={`item__${item.status.toLowerCase()}`}>
+                  <span
+                    className={`item__${item.status.toLowerCase()} ${
+                      item.status === "Out of Stock"
+                        ? "item--outstock"
+                        : "item--instock"
+                    }`}
+                  >
                     {item.status}
                   </span>
                 </td>

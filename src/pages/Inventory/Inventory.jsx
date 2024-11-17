@@ -14,7 +14,6 @@ const InventoryPage = () => {
 
   const baseUrl = "http://localhost:8080";
 
- 
   const fetchInventoryItems = async () => {
     try {
       const response = await axios.get(`${baseUrl}/inventory`);
@@ -52,7 +51,7 @@ const InventoryPage = () => {
     } catch (error) {
       console.log("Error deleting inventory item:", error);
     }
-    closeModal(); 
+    closeModal();
   };
 
   useEffect(() => {
@@ -77,7 +76,7 @@ const InventoryPage = () => {
         inventoryItems={inventoryItems}
         onDelete={(inventoryId, categoryName) =>
           openModal(inventoryId, categoryName)
-        } 
+        }
       />
       {isModalOpen && (
         <InventoryDeleteModal

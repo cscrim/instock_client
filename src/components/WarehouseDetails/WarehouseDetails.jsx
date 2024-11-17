@@ -27,7 +27,7 @@ const WarehouseDetails = ({ warehouse, inventory, onEdit }) => {
         </div>
 
         {/* Link for editing warehouse */}
-        <Link
+        {/* <Link
           to={`/warehouses/edit/${warehouse.id}`}
           className="warehouse-details__edit-link"
         >
@@ -44,13 +44,27 @@ const WarehouseDetails = ({ warehouse, inventory, onEdit }) => {
           to={`/warehouses/edit/${warehouse.id}`}
           className="warehouse-details__edit-link--tablet"
         >
-          <button className="warehouse-details__edit-button--tablet">
+          <div className="warehouse-details__edit-button--tablet">
             <img
               src={editIcon}
               className="edit-button__icon"
               alt="edit pencil icon"
             />
             Edit
+          </div>
+        </Link>*/}
+
+        <Link
+          to={`/warehouses/edit/${warehouse.id}`}
+          className="warehouse-details__edit-link"
+        >
+          <button className="warehouse-details__edit-button">
+            <img
+              src={editIcon}
+              className="edit-button__icon"
+              alt="edit pencil icon"
+            />
+            <span className="edit-button__text">Edit</span>
           </button>
         </Link>
       </div>

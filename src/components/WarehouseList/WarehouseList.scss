@@ -65,7 +65,7 @@
     /* Consistent width and alignment for table-like structure */
     @include tablet {
       margin-bottom: 0;
-      max-width: 9.375rem;
+      max-width: 12.5rem;
       flex: 1;
       text-align: left;
     }
@@ -168,4 +168,5 @@ textarea {
 
 .warehouse-list__item--margin {
   margin-left: 5.25rem;
+  // padding-left: 5.25rem;
 }

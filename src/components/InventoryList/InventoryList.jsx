@@ -124,11 +124,13 @@ const InventoryList = ({ inventoryItems, onDelete, hideWarehouseColumn }) => {
                   />
                 </div>
               </div>
-              <div className="inventory-list__item">{item.category}</div>
+              <div className="inventory-list__item inventory-list__item--padding">
+                {item.category}
+              </div>
               {/* </div> */}
               {/* <div className="list-column"> */}
               <div
-                className="inventory-list__item
+                className="inventory-list__item inventory-list__item--padding
               "
               >
                 <div
@@ -141,9 +143,11 @@ const InventoryList = ({ inventoryItems, onDelete, hideWarehouseColumn }) => {
                   {item.status}
                 </div>
               </div>
-              <div className="inventory-list__item">{item.quantity}</div>
+              <div className="inventory-list__item inventory-list__item--margin1">
+                {item.quantity}
+              </div>
               {!hideWarehouseColumn && (
-                <div className="inventory-list__item">
+                <div className="inventory-list__item inventory-list__item--margin1">
                   {item.warehouse_name}
                 </div>
               )}

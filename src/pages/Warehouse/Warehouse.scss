@@ -85,6 +85,22 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      margin-bottom: 0;
     }
   }
+}
+
+// Sort icon alignment
+.header-title {
+  display: flex;
+  align-items: center;
+}
+
+.sort-icon {
+  margin-left: 0.25rem;
+}
+
+// Chevron icon styling
+.item-chevron {
+  margin-left: 0.25rem;
 }

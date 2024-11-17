@@ -1,33 +1,219 @@
-/* src/components/InventoryList/InventoryList.scss */
+// /* src/components/InventoryList/InventoryList.scss */
+// @use "../../styles/partials/variables.scss" as *;
+// @use "../../styles/partials/mixins.scss" as *;
+// .inventory-list {
+//   padding: 0;
+//   list-style-type: none;
+//   display: flex;
+//   flex-direction: column;
+//   /* Header row for tablet and desktop view */
+//   &__header-row {
+//     display: none; /* Hidden on mobile */
+//     padding: 10px;
+//     background-color: $background-light-grey;
+//     border-bottom: 1px solid #ddd;
+//     color: $secondary-slate;
+
+//     @include tablet {
+//       display: flex;
+//       justify-content: space-between;
+//       padding: 10px 20px;
+//       border-bottom: 0;
+//     }
+//     @include desktop {
+//       padding: 12px 24px;
+//     }
+//   }
+//   /* Row styling for individual inventory items */
+//   &__row {
+//     display: flex;
+//     flex-direction: column;
+//     padding: 10px;
+//     border-bottom: 1px solid #ddd;
+//     color: $primary-black;
+
+//     &:hover {
+//       background-color: rgba($primary-indigo, 0.07);
+//     }
+
+//     @include tablet {
+//       flex-direction: row;
+//       justify-content: space-between;
+//       padding: 15px 20px;
+//       text-align: left;
+//       max-width: 100%;
+//     }
+//     @include desktop {
+//       padding: 20px 24px;
+//     }
+//   }
+//   &__name-link {
+//     text-decoration: none;
+//     color: $primary-indigo;
+//     font-weight: 600;
+
+//     &:hover {
+//       text-decoration: underline;
+//     }
+//   }
+//   /* Set up each list item to align with header columns */
+//   &__item {
+//     margin-bottom: 5px;
+
+//     /* Consistent width and alignment for table-like structure */
+//     @include tablet {
+//       margin-bottom: 0;
+//       flex: 1;
+//       text-align: left;
+//       max-width: 100%;
+//     }
+//   }
+
+//   &__item--actions {
+//     text-align: right;
+//     display: flex;
+//     justify-content: space-between;
+
+//     @include tablet {
+//       display: block;
+//     }
+//   }
+//   /* Mobile-only header item styling */
+//   &__header-item {
+//     margin-bottom: 5px;
+//     color: $secondary-slate;
+//   }
+//   &__header-item--mobile {
+//     display: none;
+//     position: absolute;
+//   }
+//   /* Button styling for delete and edit */
+//   &__button {
+//     cursor: pointer;
+//     border: none;
+//     background-color: white;
+//     width: 1.5rem;
+//     margin: 0 0.5rem;
+//   }
+//   /* Form field styles */
+//   input,
+//   select,
+//   textarea {
+//     padding: 10px;
+//     border: 1px solid #ddd;
+//     border-radius: 4px;
+//     width: 100%;
+//     margin-bottom: 10px;
+//     @include mobile-text-field-styling;
+//     @include tablet {
+//       @include tablet-text-field-styling;
+//     }
+//     @include desktop {
+//       @include tablet-text-field-styling;
+//     }
+//   }
+// }
+// .item__instock {
+//   @include mobile-instock-tag;
+//   @include tablet {
+//     @include tablet-instock-tag;
+//   }
+// }
+// .item__outstock {
+//   @include mobile-outofstock-tag;
+//   @include tablet {
+//     @include tablet-outofstock-tag;
+//   }
+// }
+// /* Adjust content-box for different views */
+// .inventory-list__content-box {
+//   display: flex;
+//   flex-direction: row;
+//   @include tablet {
+//     display: contents; /* Remove the wrapper on tablet and desktop views */
+//   }
+// }
+// .list-column {
+//   display: flex;
+//   flex-direction: column;
+//   margin-right: 6rem;
+//   @include tablet {
+//     margin-right: 0;
+//     display: contents; /* Adjust for table layout */
+//   }
+// }
+// .item-chevron {
+//   padding-left: 0.25rem;
+// }
+// .item-box {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .header-row__title-box {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .inventory-list__item--padding {
+//   padding-left: 5rem;
+// }
+
 @use "../../styles/partials/variables.scss" as *;
 @use "../../styles/partials/mixins.scss" as *;
-.inventory-list {
+
+.warehouse-list {
   padding: 0;
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  /* Header row for tablet and desktop view */
-  &__header-row {
+
+  /* Table for tablet and desktop views */
+  &__table {
     display: none; /* Hidden on mobile */
-    padding: 10px;
-    background-color: $background-light-grey;
-    border-bottom: 1px solid #ddd;
-    color: $secondary-slate;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
 
     @include tablet {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 20px;
-      border-bottom: 0;
+      display: table;
     }
-    @include desktop {
-      padding: 12px 24px;
+
+    th {
+      background-color: $background-light-grey;
+      color: $secondary-slate;
+      font-weight: 400;
+      padding-top: 2rem;
+    }
+
+    td {
+      color: $primary-black;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+
+      &:first-child {
+        a {
+          color: $primary-indigo;
+          text-decoration: none;
+          font-weight: 600;
+        }
+      }
+
+      .warehouse-list__button {
+        margin-right: 0.5rem;
+      }
+    }
+
+    tbody tr:hover {
+      background-color: rgba($primary-indigo, 0.07);
     }
   }
-  /* Row styling for individual inventory items */
-  &__row {
+
+  /* Content box for mobile layout */
+  &__content-box {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 10px;
     border-bottom: 1px solid #ddd;
     color: $primary-black;
@@ -37,124 +223,64 @@
     }
 
     @include tablet {
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 15px 20px;
-      text-align: left;
-      max-width: 100%;
-    }
-    @include desktop {
-      padding: 20px 24px;
-    }
-  }
-  &__name-link {
-    text-decoration: none;
-    color: $primary-indigo;
-    font-weight: 600;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  /* Set up each list item to align with header columns */
-  &__item {
-    margin-bottom: 5px;
-
-    /* Consistent width and alignment for table-like structure */
-    @include tablet {
-      margin-bottom: 0;
-      flex: 1;
-      text-align: left;
-      max-width: 100%;
+      display: none; /* Hide on tablet and desktop */
     }
   }
 
-  &__item--actions {
-    text-align: right;
-    display: flex;
-    justify-content: space-between;
-
-    @include tablet {
-      display: block;
-    }
-  }
-  /* Mobile-only header item styling */
+  /* Header row for mobile */
   &__header-item {
-    margin-bottom: 5px;
     color: $secondary-slate;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
   }
-  &__header-item--mobile {
-    display: none;
-    position: absolute;
+
+  .list-column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 6rem;
+
+    @include tablet {
+      margin-right: 0;
+    }
   }
-  /* Button styling for delete and edit */
+
+  .item-box {
+    display: flex;
+    align-items: center;
+  }
+
+  .item-chevron {
+    padding-left: 0.25rem;
+  }
+
+  /* Button styling for actions */
   &__button {
     cursor: pointer;
     border: none;
     background-color: white;
     width: 1.5rem;
     margin: 0 0.5rem;
-  }
-  /* Form field styles */
-  input,
-  select,
-  textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 100%;
-    margin-bottom: 10px;
-    @include mobile-text-field-styling;
-    @include tablet {
-      @include tablet-text-field-styling;
-    }
-    @include desktop {
-      @include tablet-text-field-styling;
+
+    img {
+      width: 1rem;
+      height: 1rem;
     }
   }
 }
-.item__instock {
-  @include mobile-instock-tag;
-  @include tablet {
-    @include tablet-instock-tag;
-  }
-}
-.item__outstock {
-  @include mobile-outofstock-tag;
-  @include tablet {
-    @include tablet-outofstock-tag;
-  }
-}
-/* Adjust content-box for different views */
-.inventory-list__content-box {
-  display: flex;
-  flex-direction: row;
-  @include tablet {
-    display: contents; /* Remove the wrapper on tablet and desktop views */
-  }
-}
-.list-column {
+
+/* Mobile-only row styling */
+.warehouse-list__row {
   display: flex;
   flex-direction: column;
-  margin-right: 6rem;
-  @include tablet {
-    margin-right: 0;
-    display: contents; /* Adjust for table layout */
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  color: $primary-black;
+
+  &:hover {
+    background-color: rgba($primary-indigo, 0.07);
   }
-}
-.item-chevron {
-  padding-left: 0.25rem;
-}
-.item-box {
-  display: flex;
-  align-items: center;
-}
 
-.header-row__title-box {
-  display: flex;
-  align-items: center;
-}
-
-.inventory-list__item--padding {
-  padding-left: 5rem;
+  @include tablet {
+    display: none; /* Hidden in tablet and desktop views */
+  }
 }

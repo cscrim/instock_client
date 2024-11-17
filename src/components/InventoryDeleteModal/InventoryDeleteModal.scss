@@ -37,6 +37,7 @@
   right: 0;
   bottom: 0;
   flex-direction: column;
+  position: relative;
 
   @include tablet {
     position: absolute;
@@ -51,6 +52,22 @@
   @include desktop {
     width: 900px;
     height: 350px;
+  }
+}
+
+.cancel-button {
+  position: absolute; 
+  top: 1rem; 
+  right: 1rem; 
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002; 
+  
+  img {
+    width: 24px; 
+    height: 24px;
   }
 }
 

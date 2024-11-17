@@ -1,80 +1,3 @@
-// import React from "react";
-// import { Link } from "react-router-dom"; // Import Link
-// import "./WarehouseList.scss";
-// import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
-// import editIcon from "../../assets/Icons/edit-24px.svg";
-// import sortIcon from "../../assets/Icons/sort-24px.svg";
-
-// const WarehouseList = ({ warehouses, onDelete }) => {
-//   return (
-//     <div className="warehouse-list">
-//       {/* Header row for tablet and desktop view */}
-//       <div className="warehouse-list__header-row">
-//         <div className="warehouse-list__header-item">WAREHOUSE</div>
-//         <div className="warehouse-list__header-item">ADDRESS</div>
-//         <div className="warehouse-list__header-item">CONTACT NAME</div>
-//         <div className="warehouse-list__header-item">CONTACT INFORMATION</div>
-//         <div className="warehouse-list__header-item">ACTIONS</div>
-//       </div>
-
-//       {warehouses.map((warehouse) => (
-//         <div key={warehouse.id} className="warehouse-list__row">
-//           <div className="warehouse-list__item">
-//             <div className="warehouse-list__header-item mobile-only">
-//               WAREHOUSE
-//             </div>
-//             {/* Link to WarehouseDetails */}
-//             <Link
-//               to={`/warehouses/details/${warehouse.id}`}
-//               className="warehouse-list__name-link"
-//             >
-//               {warehouse.warehouse_name}
-//             </Link>
-//           </div>
-//           <div className="warehouse-list__item">
-//             <div className="warehouse-list__header-item mobile-only">
-//               ADDRESS
-//             </div>
-//             <div>{warehouse.address}</div>
-//           </div>
-//           <div className="warehouse-list__item">
-//             <div className="warehouse-list__header-item mobile-only">
-//               CONTACT NAME
-//             </div>
-//             <div>{warehouse.contact_name}</div>
-//           </div>
-//           <div className="warehouse-list__item">
-//             <div className="warehouse-list__header-item mobile-only">
-//               CONTACT INFORMATION
-//             </div>
-//             <div>{warehouse.contact_email}</div>
-//           </div>
-
-//           <div className="warehouse-list__item warehouse-list__item--right">
-//             <div className="warehouse-list__header-item warehouse-list__header-item--mobile">
-//               ACTIONS
-//             </div>
-//             <button
-//               className="warehouse-list__button"
-//               onClick={() => onDelete(warehouse.id, warehouse.warehouse_name)}
-//             >
-//               <img src={deleteIcon} alt="delete trashcan icon" />
-//             </button>
-//             {/* Link for editing warehouse */}
-//             <Link
-//               to={`/warehouses/edit/${warehouse.id}`}
-//               className="warehouse-list__button"
-//             >
-//               <img src={editIcon} alt="edit pencil icon" />
-//             </Link>
-//           </div>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default WarehouseList;
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -200,13 +123,6 @@ const WarehouseList = ({ warehouses, onDelete }) => {
           )}
           <div className="warehouse-list__item warehouse-list__item--actions">
 
-
-          {/* <button
-//               className="warehouse-list__button"
-//               onClick={() => onDelete(warehouse.id, warehouse.warehouse_name)}
-//             >
-//               <img src={deleteIcon} alt="delete trashcan icon" />
-//             </button> */}
             <button
               className="warehouse-list__button"
               onClick={() => onDelete(warehouse.id, warehouse.warehouse_name)}

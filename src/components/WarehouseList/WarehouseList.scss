@@ -123,15 +123,6 @@ textarea {
   }
 }
 
-/* Search input styling */
-.search-input {
-  @include mobile-search-styling;
-
-  @include tablet {
-    @include tablet-search-styling;
-  }
-}
-
 /* Adjust content-box for different views */
 .warehouse-list__content-box {
   display: flex;
@@ -173,4 +164,8 @@ textarea {
 
 .warehouse-list__header-item--bold {
   font-weight: 600;
+}
+
+.warehouse-list__item--margin {
+  margin-left: 5.25rem;
 }

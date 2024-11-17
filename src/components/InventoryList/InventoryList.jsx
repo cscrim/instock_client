@@ -35,11 +35,11 @@ const InventoryList = ({ inventoryItems, onDelete, hideWarehouseColumn }) => {
         <div className="header-row__title-box">
           <div className="inventory-list__header-item">STATUS</div>
           <img src={sortIcon} alt="sort icon" className="sort-icon" />
-        </div>{" "}
+        </div>
         <div className="header-row__title-box">
           <div className="inventory-list__header-item">QTY</div>
           <img src={sortIcon} alt="sort icon" className="sort-icon" />
-        </div>{" "}
+        </div>
         {!hideWarehouseColumn && (
           <div className="header-row__title-box">
             <div className="inventory-list__header-item">WAREHOUSE</div>
@@ -57,7 +57,7 @@ const InventoryList = ({ inventoryItems, onDelete, hideWarehouseColumn }) => {
             <div className="inventory-list__content-box">
               <div className="list-column">
                 <div className="inventory-list__item">
-                  <div className="inventory-list__header-item mobile-only">
+                  <div className="inventory-list__header-item">
                     INVENTORY ITEM
                   </div>
                   <div className="item-box">
@@ -75,17 +75,13 @@ const InventoryList = ({ inventoryItems, onDelete, hideWarehouseColumn }) => {
                   </div>
                 </div>
                 <div className="inventory-list__item">
-                  <div className="inventory-list__header-item mobile-only">
-                    CATEGORY
-                  </div>
+                  <div className="inventory-list__header-item">CATEGORY</div>
                   <div>{item.category}</div>
                 </div>
               </div>
               <div className="list-column">
                 <div className="inventory-list__item">
-                  <div className="inventory-list__header-item mobile-only">
-                    STATUS
-                  </div>
+                  <div className="inventory-list__header-item">STATUS</div>
                   <div
                     className={
                       item.status === "Out of Stock"
@@ -97,16 +93,14 @@ const InventoryList = ({ inventoryItems, onDelete, hideWarehouseColumn }) => {
                   </div>
                 </div>
                 <div className="inventory-list__item">
-                  <div className="inventory-list__header-item mobile-only inventory-list__header-item--qty">
+                  <div className="inventory-list__header-item inventory-list__header-item--qty">
                     QTY
                   </div>
                   <div>{item.quantity}</div>
                 </div>
                 {!hideWarehouseColumn && (
                   <div className="inventory-list__item">
-                    <div className="inventory-list__header-item mobile-only">
-                      WAREHOUSE
-                    </div>
+                    <div className="inventory-list__header-item">WAREHOUSE</div>
                     <div>{item.warehouse_name}</div>
                   </div>
                 )}
@@ -133,7 +127,10 @@ const InventoryList = ({ inventoryItems, onDelete, hideWarehouseColumn }) => {
               <div className="inventory-list__item">{item.category}</div>
               {/* </div> */}
               {/* <div className="list-column"> */}
-              <div className="inventory-list__item">
+              <div
+                className="inventory-list__item
+              "
+              >
                 <div
                   className={
                     item.status === "Out of Stock"
@@ -150,7 +147,6 @@ const InventoryList = ({ inventoryItems, onDelete, hideWarehouseColumn }) => {
                   {item.warehouse_name}
                 </div>
               )}
-              {/* </div> */}
             </>
           )}
           <div className="inventory-list__item inventory-list__item--actions">

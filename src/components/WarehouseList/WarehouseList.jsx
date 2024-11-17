@@ -91,7 +91,7 @@ const WarehouseList = ({ warehouses, onDelete }) => {
             </div>
           ) : (
             <>
-              <div className="warehouse-list__item testtest">
+              <div className="warehouse-list__item">
                 <div className="item-box">
                   <Link
                     to={`/warehouse/details/${warehouse.id}`}
@@ -106,13 +106,13 @@ const WarehouseList = ({ warehouses, onDelete }) => {
                   />
                 </div>
               </div>
-              <div className="warehouse-list__item">
+              <div className="warehouse-list__item warehouse-list__item--margin">
                 {warehouse.address}, {warehouse.city}, {warehouse.country}
               </div>
-              <div className="warehouse-list__item">
+              <div className="warehouse-list__item warehouse-list__item--margin">
                 {warehouse.contact_name}
               </div>
-              <div className="warehouse-list__item">
+              <div className="warehouse-list__item warehouse-list__item--margin">
                 <div>{warehouse.contact_phone}</div>
                 <div>{warehouse.contact_email}</div>
               </div>

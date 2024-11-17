@@ -1,26 +1,39 @@
-// src/components/InventoryDeleteModal.jsx
-import React from "react";
-// import "./InventoryDeleteModal.scss"; // Import styles for the modal
+import "./InventoryDeleteModal.scss";
 
-const InventoryDeleteModal = ({ isOpen, onClose, onDelete, inventoryId }) => {
-  // Don't render the modal if it's not open
+const InventoryDeleteModal = ({
+  isOpen,
+  onClose,
+  onDelete,
+  inventoryId,
+  categoryName,
+}) => {
   if (!isOpen) return null;
 
   const handleDeleteClick = () => {
     if (inventoryId) {
-      onDelete(inventoryId); // Perform the deletion if inventoryId is available
+      onDelete(inventoryId);
     }
   };
 
+  const handleCancelClick = () => {
+    onClose();
+  };
+
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <h2>Are you sure you want to delete this inventory item?</h2>
-        <div className="modal-actions">
-          <button onClick={onClose} className="modal-cancel-button">
+    <div className="modalWrapper">
+      <div className="modalOverlay">
+        <div className="modalContent">
+          <h1>Delete {categoryName} inventory item?</h1>
+          <h2>
+            Please confirm you'd like to delete {categoryName} from the inventory. You won't be able to undo this action.
+          </h2>
+        </div>
+
+        <div className="modalButtons">
+          <button className="cancel" onClick={handleCancelClick}>
             Cancel
           </button>
-          <button onClick={handleDeleteClick} className="modal-delete-button">
+          <button className="delete" onClick={handleDeleteClick}>
             Delete
           </button>
         </div>

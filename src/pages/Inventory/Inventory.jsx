@@ -1,5 +1,6 @@
 // src/pages/InventoryPage.jsx
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import InventoryList from "../../components/InventoryList/InventoryList"; // Import InventoryList component
 import InventoryDeleteModal from "../../components/InventoryDeleteModal/InventoryDeleteModal"; // Import the modal component
@@ -9,10 +10,11 @@ const InventoryPage = () => {
   const [inventoryItems, setInventoryItems] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedInventoryId, setSelectedInventoryId] = useState(null);
+  const [selectedCategoryName, setSelectedCategoryName] = useState(null);
 
   const baseUrl = "http://localhost:8080";
 
-  // Fetch inventory items from the backend
+ 
   const fetchInventoryItems = async () => {
     try {
       const response = await axios.get(`${baseUrl}/inventory`);
@@ -22,19 +24,18 @@ const InventoryPage = () => {
     }
   };
 
-  // Open the delete modal
-  const openModal = (inventoryId) => {
+  const openModal = (inventoryId, categoryName) => {
     setSelectedInventoryId(inventoryId);
+    setSelectedCategoryName(categoryName);
     setIsModalOpen(true);
   };
 
-  // Close the delete modal
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedInventoryId(null);
+    setSelectedCategoryName(null);
   };
 
-  // Handle deleting an inventory item
   const handleDelete = async (inventoryId) => {
     try {
       const response = await axios.delete(
@@ -51,10 +52,9 @@ const InventoryPage = () => {
     } catch (error) {
       console.log("Error deleting inventory item:", error);
     }
-    closeModal(); // Close modal after delete
+    closeModal(); 
   };
 
-  // Fetch inventory items when the page loads
   useEffect(() => {
     fetchInventoryItems();
   }, []);
@@ -68,14 +68,16 @@ const InventoryPage = () => {
           className="inventory-page__search-input"
           placeholder="Search..."
         ></input>
-        <button type="submit" className="inventory-page__add-button">
+        <Link to="/inventory/add" className="inventory-page__add-button">
           + Add New Item
-        </button>
+        </Link>
       </div>
 
       <InventoryList
         inventoryItems={inventoryItems}
-        onDelete={openModal} // Pass the openModal function to handle delete
+        onDelete={(inventoryId, categoryName) =>
+          openModal(inventoryId, categoryName)
+        } 
       />
       {isModalOpen && (
         <InventoryDeleteModal
@@ -83,6 +85,7 @@ const InventoryPage = () => {
           onClose={closeModal}
           onDelete={handleDelete}
           inventoryId={selectedInventoryId}
+          categoryName={selectedCategoryName}
         />
       )}
     </div>

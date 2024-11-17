@@ -77,9 +77,7 @@ const WarehousePage = () => {
           className="warehouse-page__search-input"
           placeholder="Search..."
         ></input>
-        {/* <button type="submit" className="warehouse-page__add-button">
-          + Add New Warehouse
-        </button> */}
+
         <Link to="/warehouses/add" className="warehouse-page__add-button">
           + Add New Warehouse
         </Link>
@@ -90,14 +88,7 @@ const WarehousePage = () => {
           openModal(warehouseId, warehouseName)
         } // Pass the openModal function to handle delete
       />
-      {/* {selectedWarehouseId && selectedWarehouseName && (
-        <WarehouseDeleteModal
-          isOpen={true}
-          onClose={closeModal}
-          onDelete={handleDelete}
-          warehouseId={selectedWarehouseId}
-          warehouseName={selectedWarehouseName}
-        /> */}
+   
       {selectedWarehouseId && selectedWarehouseName
         ? (console.log("Rendering modal..."),
           (

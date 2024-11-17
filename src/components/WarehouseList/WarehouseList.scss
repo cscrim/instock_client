@@ -65,7 +65,9 @@
     /* Consistent width and alignment for table-like structure */
     @include tablet {
       margin-bottom: 0;
+      max-width: 9.375rem;
       flex: 1;
+      text-align: left;
     }
   }
 
@@ -84,19 +86,10 @@
     margin-bottom: 5px;
     color: $secondary-slate;
 
-    /* Only show on mobile */
-    &.mobile-only {
-      display: block;
-
-      @include tablet {
-        display: none; /* Hide on tablet and desktop */
-      }
+    &__header-item--mobile {
+      display: none;
+      position: absolute;
     }
-  }
-
-  &__header-item--mobile {
-    display: none;
-    position: absolute;
   }
 
   /* Button styling for delete and edit */
@@ -107,35 +100,35 @@
     width: 1.5rem;
     margin: 0 0.5rem;
   }
+}
 
-  /* Form field styles */
-  input,
-  select,
-  textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 100%;
-    margin-bottom: 10px;
+/* Form field styles */
+input,
+select,
+textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 10px;
 
-    @include mobile-text-field-styling;
+  @include mobile-text-field-styling;
 
-    @include tablet {
-      @include tablet-text-field-styling;
-    }
-
-    @include desktop {
-      @include tablet-text-field-styling;
-    }
+  @include tablet {
+    @include tablet-text-field-styling;
   }
 
-  /* Search input styling */
-  .search-input {
-    @include mobile-search-styling;
+  @include desktop {
+    @include tablet-text-field-styling;
+  }
+}
 
-    @include tablet {
-      @include tablet-search-styling;
-    }
+/* Search input styling */
+.search-input {
+  @include mobile-search-styling;
+
+  @include tablet {
+    @include tablet-search-styling;
   }
 }
 

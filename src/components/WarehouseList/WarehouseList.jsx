@@ -67,9 +67,7 @@ const WarehouseList = ({ warehouses, onDelete }) => {
                   </div>
                 </div>
                 <div className="warehouse-list__item">
-                  <div className="warehouse-list__header-item mobile-only">
-                    ADDRESS
-                  </div>
+                  <div className="warehouse-list__header-item">ADDRESS</div>
                   <div>
                     {warehouse.address}, {warehouse.city}, {warehouse.country}
                   </div>
@@ -77,13 +75,13 @@ const WarehouseList = ({ warehouses, onDelete }) => {
               </div>
               <div className="list-column">
                 <div className="warehouse-list__item">
-                  <div className="warehouse-list__header-item mobile-only">
+                  <div className="warehouse-list__header-item">
                     CONTACT NAME
                   </div>
                   <div>{warehouse.contact_name}</div>
                 </div>
                 <div className="warehouse-list__item">
-                  <div className="warehouse-list__header-item mobile-only">
+                  <div className="warehouse-list__header-item">
                     CONTACT INFORMATION
                   </div>
                   <div>{warehouse.contact_phone}</div>
@@ -93,7 +91,7 @@ const WarehouseList = ({ warehouses, onDelete }) => {
             </div>
           ) : (
             <>
-              <div className="warehouse-list__item">
+              <div className="warehouse-list__item testtest">
                 <div className="item-box">
                   <Link
                     to={`/warehouse/details/${warehouse.id}`}

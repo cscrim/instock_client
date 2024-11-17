@@ -3,26 +3,20 @@
 @use "../../styles/partials/typography" as *;
 
 .modalWrapper {
-
   background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1000; 
+  z-index: 1000;
   flex-direction: column;
-  
+
   @media (min-width: 768px) {
-    background: rgba(
-      0,
-      0,
-      0,
-      0.7
-    ); 
+    background: rgba(0, 0, 0, 0.7);
   }
 }
 
@@ -55,18 +49,18 @@
   }
 }
 
-.cancel-button {
-  position: absolute; 
-  top: 1rem; 
-  right: 1rem; 
+.exit__button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1002; 
-  
+  z-index: 1002;
+
   img {
-    width: 24px; 
+    width: 24px;
     height: 24px;
   }
 }
@@ -86,7 +80,6 @@
     width: 60%;
     max-width: 600px;
   }
-
 }
 
 h1 {

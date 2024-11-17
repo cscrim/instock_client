@@ -1,5 +1,5 @@
 import "./WarehouseDeleteModal.scss";
-import cancelIcon from '../../assets/Icons/close-24px.svg';
+import cancelIcon from "../../assets/Icons/close-24px.svg";
 
 const WarehouseDeleteModal = ({
   isOpen,
@@ -23,11 +23,10 @@ const WarehouseDeleteModal = ({
   return (
     <div className="modalWrapper">
       <div className="modalOverlay">
-      
-          <button className="cancel-button">
-            <img src={cancelIcon} onClick={handleCancelClick} alt="Cancel" />
-          </button>
-       
+        <button className="exit__button">
+          <img src={cancelIcon} onClick={handleCancelClick} alt="Cancel" />
+        </button>
+
         <div className="modalContent">
           <h1>Delete {warehouseName} warehouse?</h1>
           <h2>

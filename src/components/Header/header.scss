@@ -17,7 +17,7 @@ body {
   );
   min-height: 100vh;
   margin: 0;
-  font-family: "Titillium Web"; // Set the default font family for the body
+  font-family: "Titillium Web";
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -90,9 +90,8 @@ body {
     }
   }
 
-  /* Style for Tabs (Warehouses and Inventory) */
   &__tab {
-    font-family: "Titillium Web", sans-serif; // Apply Titillium font-family
+    font-family: "Titillium Web", sans-serif;
     font-weight: bold;
     background: none;
     border: none;
@@ -100,14 +99,14 @@ body {
     border-radius: 20px;
     font-size: 1rem;
     color: $secondary-cloud;
-    text-decoration: none; // Remove underline
+    text-decoration: none; //
     transition: color 0.3s ease, background-color 0.3s ease;
     width: auto;
     text-align: center;
 
     &:hover {
       color: $primary-white;
-      background-color: $primary-black; // Apply background change on hover
+      background-color: $primary-black;
     }
 
     &--active {

@@ -3,8 +3,7 @@ import logo from "../../assets/Logo/InStock-Logo_1x.png";
 import "./Header.scss";
 
 function Header() {
-  const location = useLocation(); // Get the current location
-
+  const location = useLocation();
   return (
     <section className="header-container">
       <header className="header">
@@ -14,7 +13,6 @@ function Header() {
           </Link>
         </div>
         <nav className="header__nav">
-          {/* Apply the active class dynamically based on the current path */}
           <Link
             to="/warehouses"
             className={`header__tab ${

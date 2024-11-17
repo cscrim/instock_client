@@ -73,7 +73,7 @@
     .form-buttons {
       display: flex;
       justify-content: flex-end;
-      gap: 1rem; 
+      gap: 1rem;
       margin-top: 20px;
 
       button {
@@ -83,23 +83,23 @@
         border-radius: 4px;
         cursor: pointer;
         transition: background-color 0.3s;
-        display: inline-flex;   
-        flex-direction: row;    
-        justify-content: center; 
-        align-items: center;    
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
 
         &.cancel-button {
           @include mobile-secondary-button-styling;
 
           &:hover {
-            background-color: #d32f2f; 
+            background-color: #d32f2f;
             color: white;
           }
 
           @include tablet {
-            width: auto;  
+            width: auto;
             height: 38px;
-            padding: 10px 20px; 
+            padding: 10px 20px;
           }
         }
 
@@ -107,13 +107,13 @@
           @include mobile-primary-button-styling;
 
           &:hover {
-            background-color: #388e3c; 
+            background-color: #388e3c;
           }
 
           @include tablet {
-            width: auto;  
+            width: auto;
             height: 38px;
-            padding: 12px 20px; 
+            padding: 12px 20px;
           }
         }
       }
@@ -242,4 +242,10 @@
   }
 }
 
+.warehouse-details {
+  padding: 0;
+}
 
+h3 {
+  padding-top: 2rem;
+}

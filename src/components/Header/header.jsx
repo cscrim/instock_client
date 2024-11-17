@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Logo/InStock-Logo_1x.png";
 import "./Header.scss";
 
 function Header() {
+  const location = useLocation(); // Get the current location
+
   return (
     <section className="header-container">
       <header className="header">
@@ -12,12 +14,21 @@ function Header() {
           </Link>
         </div>
         <nav className="header__nav">
-          {/* Link to /warehouses */}
-          <Link to="/warehouses" className="header__tab header__tab--active">
+          {/* Apply the active class dynamically based on the current path */}
+          <Link
+            to="/warehouses"
+            className={`header__tab ${
+              location.pathname === "/warehouses" ? "header__tab--active" : ""
+            }`}
+          >
             Warehouses
           </Link>
-          {/* Link to /inventory */}
-          <Link to="/inventory" className="header__tab">
+          <Link
+            to="/inventory"
+            className={`header__tab ${
+              location.pathname === "/inventory" ? "header__tab--active" : ""
+            }`}
+          >
             Inventory
           </Link>
         </nav>

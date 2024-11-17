@@ -11,23 +11,22 @@ const AddInventory = () => {
     item_name: "",
     description: "",
     category: "",
-    status: "out_of_stock", 
+    status: "out_of_stock",
     quantity: "",
     warehouse_name: "",
   });
 
-  const [categories, setCategories] = useState([]); 
-  const [warehouses, setWarehouses] = useState([]); 
+  const [categories, setCategories] = useState([]);
+  const [warehouses, setWarehouses] = useState([]);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
-
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const [categoriesRes, warehousesRes] = await Promise.all([
-          axios.get("http://localhost:8080/inventory/categories"), 
+          axios.get("http://localhost:8080/inventory/categories"),
           axios.get("http://localhost:8080/warehouses"),
         ]);
         setCategories(categoriesRes.data);
@@ -85,15 +84,13 @@ const AddInventory = () => {
           throw new Error("Warehouse not found");
         }
 
-       
         const dataToSubmit = {
           ...formData,
-          warehouse_name: warehouseName, 
+          warehouse_name: warehouseName,
         };
 
-        console.log("Data to submit:", dataToSubmit); 
+        console.log("Data to submit:", dataToSubmit);
 
-        
         await axios.post("http://localhost:8080/inventory", dataToSubmit);
         setSuccess("Inventory item added successfully");
 
@@ -179,7 +176,9 @@ const AddInventory = () => {
                 onChange={handleChange}
                 required
               />
-              {errors.description && <p className="error">{errors.description}</p>}
+              {errors.description && (
+                <p className="error">{errors.description}</p>
+              )}
             </div>
 
             <div className="form-group">
@@ -209,26 +208,26 @@ const AddInventory = () => {
               <div className="status-options">
                 <p>Status</p>
                 <div className="status-options__buttons">
-                <label>
-                  <input
-                    type="radio"
-                    name="status"
-                    value="in_stock"
-                    checked={formData.status === "in_stock"}
-                    onChange={handleRadioChange}
-                  />
-                  In Stock
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="status"
-                    value="out_of_stock"
-                    checked={formData.status === "out_of_stock"}
-                    onChange={handleRadioChange}
-                  />
-                  Out of Stock
-                </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="status"
+                      value="in_stock"
+                      checked={formData.status === "in_stock"}
+                      onChange={handleRadioChange}
+                    />
+                    In Stock
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="status"
+                      value="out_of_stock"
+                      checked={formData.status === "out_of_stock"}
+                      onChange={handleRadioChange}
+                    />
+                    Out of Stock
+                  </label>
                 </div>
                 {errors.status && <p className="error">{errors.status}</p>}
               </div>
@@ -244,7 +243,9 @@ const AddInventory = () => {
                     onChange={handleChange}
                     required
                   />
-                  {errors.quantity && <p className="error">{errors.quantity}</p>}
+                  {errors.quantity && (
+                    <p className="error">{errors.quantity}</p>
+                  )}
                 </div>
               )}
             </div>
@@ -252,7 +253,7 @@ const AddInventory = () => {
             <div className="warehouse-details">
               <h3>Warehouse</h3>
               <div className="form-group">
-                <label htmlFor="warehouse_name">Warehouse Name</label>
+                {/* <label htmlFor="warehouse_name">Warehouse Name</label> */}
                 <select
                   id="warehouse_name"
                   name="warehouse_name"

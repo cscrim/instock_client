@@ -43,9 +43,22 @@
         background: none;
         border: none;
         cursor: pointer;
+        @include mobile-primary-button-styling;
+
+        @include tablet {
+          @include tablet-primary-button-styling;
+
+          text-decoration: none;
+          font-size: 1rem;
+          display: flex;
+          width: 6rem;
+          flex-direction: row;
+          align-items: center;
+        }
       }
 
       .inventory-details__edit-icon {
+        background-color: $primary-indigo;
         width: 24px;
         height: 24px;
       }
@@ -109,5 +122,13 @@
         color: #d32f2f;
       }
     }
+  }
+}
+
+.edit-button__text {
+  visibility: hidden;
+  @include tablet {
+    text-decoration: none;
+    visibility: visible;
   }
 }

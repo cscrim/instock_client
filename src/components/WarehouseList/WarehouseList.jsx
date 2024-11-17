@@ -123,12 +123,12 @@ const WarehouseList = ({ warehouses, onDelete }) => {
           <div className="warehouse-list__item warehouse-list__item--actions">
             <button
               className="warehouse-list__button"
-              onClick={() => onDelete(warehouse.id, warehouse.name)}
+              onClick={() => onDelete(warehouse.id, warehouse.warehouse_name)}
             >
               <img src={deleteIcon} alt="delete trashcan icon" />
             </button>
             <Link
-              to={`/warehouse/edit/${warehouse.id}`}
+              to={`/warehouses/edit/${warehouse.id}`}
               className="warehouse-list__button"
             >
               <img src={editIcon} alt="edit pencil icon" />

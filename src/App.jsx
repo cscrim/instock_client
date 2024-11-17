@@ -9,7 +9,7 @@ import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 import Inventory from "./pages/Inventory/Inventory";
 import InventoryDetails from "./pages/InventoryDetails/InventoryDetails";
 import EditInventory from "./pages/EditInventory/EditInventory";
-// import AddInventory from './pages/AddInventory/AddInventory';
+import AddInventory from './pages/AddInventory/AddInventory';
 
 import "./App.scss";
 
@@ -21,12 +21,16 @@ function App() {
         <main>
           <Routes>
             {/* Warehouse Routes */}
-            <Route path="/" element={<Warehouse />} /> {/* Default route */}
+            <Route path="/" element={<Warehouse />} /> 
             <Route path="/warehouses" element={<Warehouse />} />{" "}
-            {/* Same component for /warehouses */}
-            <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
+           
             <Route
-              path="/warehouses/details/:id"
+              path="/warehouses/edit/:warehouseId"
+              element={<EditWarehouse />}
+            />
+            <Route path="/inventory/add" element={<AddInventory />} />
+            <Route
+              path="/warehouse/details/:id"
               element={<WarehouseDetails />}
             />
             <Route path="/warehouses/add" element={<AddWarehouse />} />

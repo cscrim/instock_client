@@ -35,6 +35,10 @@
     border-bottom: 1px solid #ddd;
     color: $primary-black;
 
+    &:hover {
+      background-color: rgba($primary-indigo, 0.07);
+    }
+
     @include tablet {
       flex-direction: row;
       justify-content: space-between;

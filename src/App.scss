@@ -10,6 +10,11 @@ body {
   margin: 0;
   font-family: "Titillium Web";
 }
+main {
+  overflow-y: overlay;
+  height: 65rem;
+  width: 100%;
+}
 
 footer {
   margin-top: auto;

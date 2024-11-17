@@ -96,7 +96,6 @@ const InventoryList = ({ inventoryItems, hideWarehouseColumn, onDelete }) => {
           </div>
         ))
       ) : (
-        // Tablet/Desktop view as a table
         <table className="inventory-list__table">
           <thead>
             <tr>

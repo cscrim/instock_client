@@ -24,7 +24,6 @@ const EditWarehouse = () => {
   const [success, setSuccess] = useState("");
 
   useEffect(() => {
-    // Ensure warehouseId exists
     if (!warehouseId) {
       setError("Invalid warehouse ID.");
       return;
@@ -61,11 +60,10 @@ const EditWarehouse = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Reset error
-    setSuccess(""); // Reset success message
+    setError("");
+    setSuccess("");
 
-    // Remove unnecessary fields like `created_at` before sending the data
-    const { created_at, ...updatedData } = formData;
+    const { created_at, updated_at, ...updatedData } = formData;
 
     try {
       const response = await axios.put(
@@ -74,21 +72,20 @@ const EditWarehouse = () => {
       );
       if (response.status === 200) {
         setSuccess("Warehouse updated successfully.");
-        setFormData(response.data); // Update form with the response data
+        setFormData(response.data);
       } else {
-        throw new Error("Invalid response from server.");
+        throw new Error("Unexpected response from server.");
       }
     } catch (err) {
       console.error(err.response?.data || "Unknown error");
       setError(
         err.response?.data?.message ||
-          "Failed to update warehouse. Please check your input."
+          "Failed to update warehouse. Please check your input and try again."
       );
     }
   };
 
   const handleCancel = () => {
-    // Reset form fields and clear messages
     setFormData({
       warehouse_name: "",
       address: "",

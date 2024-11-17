@@ -9,8 +9,6 @@ function WarehouseFormReusable({
 }) {
   return (
     <form className="warehouse-form__reusable" onSubmit={handleSubmit}>
-      {/* Warehouse Details Section */}
-
       <section className="edit-warehouse__container">
         <section className="edit-warehouse__detail">
           <h3 className="edit-warehouse__subheader">Warehouse Details</h3>
@@ -102,7 +100,6 @@ function WarehouseFormReusable({
         </section>
       </section>
 
-      {/* Form Buttons */}
       <div className="edit-warehouse__buttons">
         <button
           type="button"

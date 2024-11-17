@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import editIcon from "../../assets/Icons/edit-24px.svg";
+import editIcon from "../../assets/Icons/edit-white-24px.svg";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import "./InventoryDetails.scss";
 
@@ -61,6 +61,7 @@ const InventoryDetails = () => {
         >
           <button className="inventory-details__edit-button">
             <img src={editIcon} className="edit-button__icon" alt="edit icon" />
+            <p className="edit-button__text">Edit</p>
           </button>
         </Link>
       </div>

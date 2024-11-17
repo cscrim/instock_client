@@ -1,5 +1,5 @@
 import "./InventoryDeleteModal.scss";
-import cancelIcon from '../../assets/Icons/close-24px.svg';
+import cancelIcon from "../../assets/Icons/close-24px.svg";
 
 const InventoryDeleteModal = ({
   isOpen,
@@ -23,16 +23,15 @@ const InventoryDeleteModal = ({
   return (
     <div className="modalWrapper">
       <div className="modalOverlay">
-
-      <button className="cancel-button">
-            <img src={cancelIcon} onClick={handleCancelClick} alt="Cancel" />
-          </button>
-
+        <button className="exit__button">
+          <img src={cancelIcon} onClick={handleCancelClick} alt="Cancel" />
+        </button>
 
         <div className="modalContent">
           <h1>Delete {categoryName} inventory item?</h1>
           <h2>
-            Please confirm you'd like to delete {categoryName} from the inventory. You won't be able to undo this action.
+            Please confirm you'd like to delete {categoryName} from the
+            inventory. You won't be able to undo this action.
           </h2>
         </div>
 

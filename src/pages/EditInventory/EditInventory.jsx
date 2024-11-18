@@ -113,14 +113,14 @@ const EditInventory = () => {
           />
         </Link>
 
-        <h1>Edit Inventory Item</h1>
+        <h1 className="edit-inventory__title">Edit Inventory Item</h1>
       </div>
 
       <form onSubmit={handleSubmit} className="edit-inventory-form">
         <div className="item-details__container">
           {/* Item Details Section */}
           <div className="item-details">
-            <h2>Item Details</h2>
+            <h2 className="edit-inventory__subheader">Item Details</h2>
             <div className="form-group">
               <label htmlFor="item_name">Item Name</label>
               <input

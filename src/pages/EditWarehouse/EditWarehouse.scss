@@ -30,7 +30,7 @@
       font-weight: 600;
       color: #13182c;
       text-align: center;
-
+      margin: 0;
       @include tablet {
         font-size: 2rem;
       }
@@ -51,12 +51,14 @@
     margin-bottom: 1rem;
 
     label {
+      font-weight: 600;
       font-size: 1rem;
       color: #13182c;
       margin-bottom: 0.5rem;
     }
 
     input {
+      border-radius: 20px;
       height: 40px;
       padding: 0 10px;
       border: 1px solid $secondary-cloud;
@@ -119,7 +121,7 @@
     @include mobile-subheader;
     font-weight: 600;
     margin: 2rem 0;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: #13182c;
 
     @include tablet {
@@ -130,6 +132,10 @@
     @include desktop {
       font-size: 1.5rem;
     }
+  }
+
+  h3 {
+    padding-top: 0;
   }
 }
 

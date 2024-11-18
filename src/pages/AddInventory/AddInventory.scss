@@ -1,6 +1,9 @@
 @use "../../styles/partials/variables.scss" as *;
 @use "../../styles/partials/mixins.scss" as *;
 
+.error {
+  border-color: red;
+}
 .add-inventory {
   max-width: 80%;
   margin: 0 auto;
@@ -89,14 +92,10 @@
         align-items: center;
 
         &.cancel-button {
-          @include mobile-secondary-button-styling;
-
-          &:hover {
-            background-color: #d32f2f;
-            color: white;
-          }
+          @include tablet-secondary-button-styling;
 
           @include tablet {
+            @include tablet-secondary-button-styling;
             width: auto;
             height: 38px;
             padding: 10px 20px;
@@ -104,13 +103,11 @@
         }
 
         &.save-button {
-          @include mobile-primary-button-styling;
-
-          &:hover {
-            background-color: #388e3c;
-          }
+          @include tablet-primary-button-styling;
 
           @include tablet {
+            @include tablet-primary-button-styling;
+
             width: auto;
             height: 38px;
             padding: 12px 20px;

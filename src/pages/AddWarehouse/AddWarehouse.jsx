@@ -29,7 +29,6 @@ const AddWarehouse = () => {
     });
   };
 
-
   const validate = () => {
     let tempErrors = {};
     const phoneRegex =
@@ -102,7 +101,6 @@ const AddWarehouse = () => {
   };
 
   return (
-
     <div className="add-warehouse">
       <div className="add-warehouse__header">
         <Link to="/warehouses" className="add-warehouse__back-link">
@@ -122,123 +120,55 @@ const AddWarehouse = () => {
         <div className="warehouse-details__container">
           <div className="warehouse-details">
             <h2>Warehouse Details</h2>
-            <div className="form-group">
-              <label htmlFor="warehouse_name">Warehouse Name</label>
-              <input
-                type="text"
-                id="warehouse_name"
-                name="warehouse_name"
-                value={formData.warehouse_name}
-                onChange={handleChange}
-                required
-              />
-              {errors.warehouse_name && (
-                <p className="error">{errors.warehouse_name}</p>
-              )}
-            </div>
 
-            <div className="form-group">
-              <label htmlFor="address">Address</label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                required
-              />
-              {errors.address && <p className="error">{errors.address}</p>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="city">City</label>
-              <input
-                type="text"
-                id="city"
-                name="city"
-                value={formData.city}
-                onChange={handleChange}
-                required
-              />
-              {errors.city && <p className="error">{errors.city}</p>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="country">Country</label>
-              <input
-                type="text"
-                id="country"
-                name="country"
-                value={formData.country}
-                onChange={handleChange}
-                required
-              />
-              {errors.country && <p className="error">{errors.country}</p>}
-            </div>
+            {[
+              { label: "Warehouse Name", name: "warehouse_name" },
+              { label: "Address", name: "address" },
+              { label: "City", name: "city" },
+              { label: "Country", name: "country" },
+            ].map(({ label, name }) => (
+              <div className="form-group" key={name}>
+                <label htmlFor={name}>{label}</label>
+                <input
+                  type="text"
+                  id={name}
+                  name={name}
+                  value={formData[name]}
+                  onChange={handleChange}
+                  // required
+                />
+                {errors[name] && <p className="error">{errors[name]}</p>}
+              </div>
+            ))}
           </div>
 
           <div className="contact-details__container">
             <div className="contact-details">
               <h2>Contact Details</h2>
-              <div className="form-group">
-                <label htmlFor="contact_name">Contact Name</label>
-                <input
-                  type="text"
-                  id="contact_name"
-                  name="contact_name"
-                  value={formData.contact_name}
-                  onChange={handleChange}
-                  required
-                />
-                {errors.contact_name && (
-                  <p className="error">{errors.contact_name}</p>
-                )}
-              </div>
 
-              <div className="form-group">
-                <label htmlFor="contact_position">Contact Position</label>
-                <input
-                  type="text"
-                  id="contact_position"
-                  name="contact_position"
-                  value={formData.contact_position}
-                  onChange={handleChange}
-                  required
-                />
-                {errors.contact_position && (
-                  <p className="error">{errors.contact_position}</p>
-                )}
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="contact_phone">Contact Phone</label>
-                <input
-                  type="tel"
-                  id="contact_phone"
-                  name="contact_phone"
-                  value={formData.contact_phone}
-                  onChange={handleChange}
-                  required
-                />
-                {errors.contact_phone && (
-                  <p className="error">{errors.contact_phone}</p>
-                )}
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="contact_email">Contact Email</label>
-                <input
-                  type="email"
-                  id="contact_email"
-                  name="contact_email"
-                  value={formData.contact_email}
-                  onChange={handleChange}
-                  required
-                />
-                {errors.contact_email && (
-                  <p className="error">{errors.contact_email}</p>
-                )}
-              </div>
+              {[
+                { label: "Contact Name", name: "contact_name" },
+                { label: "Contact Position", name: "contact_position" },
+                { label: "Contact Phone", name: "contact_phone", type: "tel" },
+                {
+                  label: "Contact Email",
+                  name: "contact_email",
+                  type: "email",
+                },
+              ].map(({ label, name, type = "text" }) => (
+                <div className="form-group" key={name}>
+                  <label htmlFor={name}>{label}</label>
+                  <input
+                    type={type}
+                    id={name}
+                    name={name}
+                    value={formData[name]}
+                    onChange={handleChange}
+                    // required
+                  />
+                  {errors[name] && <p className="error">{errors[name]}</p>}
+                </div>
+              ))}
             </div>
           </div>
         </div>

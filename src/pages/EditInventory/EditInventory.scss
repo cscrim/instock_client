@@ -9,14 +9,14 @@
   border-radius: 3px;
   font-family: "Titillium Web";
 
-  h1 {
+  &__title {
     font-size: 24px;
     color: #333;
     margin-left: 0;
     margin-top: 0;
   }
 
-  h2 {
+  &__subheader {
     // border-top: 1px solid #ddd;
     font-size: 1.5rem;
     font-weight: 600;
@@ -57,6 +57,7 @@
       }
 
       textarea {
+        font-family: "Titillium Web";
         resize: vertical;
         height: 120px;
       }
@@ -92,10 +93,8 @@
         &.cancel-button {
           @include mobile-secondary-button-styling;
 
-          &:hover {
-            background-color: #e53935;
-          }
           @include tablet {
+            @include tablet-secondary-button-styling;
             width: 72px;
             height: 38px;
           }
@@ -104,10 +103,8 @@
         &.save-button {
           @include mobile-primary-button-styling;
 
-          &:hover {
-            background-color: #45a049;
-          }
           @include tablet {
+            @include tablet-primary-button-styling;
             width: 72px;
             height: 38px;
           }
@@ -214,9 +211,6 @@
   font-weight: bold;
 }
 
-// .item-availability__container {
-//   width: 50%;
-// }
 .item-details {
   @include tablet {
     width: 100%;

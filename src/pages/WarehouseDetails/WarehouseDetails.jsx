@@ -5,12 +5,12 @@ import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails
 import "./WarehouseDetails.scss";
 
 const WarehouseDetailsPage = () => {
-  const { id } = useParams(); // Get warehouse id from URL
-  const navigate = useNavigate(); // For navigation
-  const [warehouse, setWarehouse] = useState(null); // State for warehouse details
-  const [inventory, setInventory] = useState([]); // State for inventory data
-  const [loading, setLoading] = useState(true); // Loading state
-  const [error, setError] = useState(null); // Error state
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [warehouse, setWarehouse] = useState(null);
+  const [inventory, setInventory] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const baseUrl = "http://localhost:8080";
 
@@ -47,18 +47,18 @@ const WarehouseDetailsPage = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>; // Show loading state
+    return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Show error message
+    return <div>Error: {error}</div>;
   }
 
   return (
     <div className="warehouse-details-page">
       <WarehouseDetails
         warehouse={warehouse}
-        inventory={inventory} // Pass inventory data as a prop
+        inventory={inventory}
         onEdit={handleEditClick}
       />
     </div>

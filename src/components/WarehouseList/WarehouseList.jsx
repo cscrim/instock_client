@@ -21,7 +21,6 @@ const WarehouseList = ({ warehouses, onDelete }) => {
   return (
     <div className="warehouse-list">
       {isMobile ? (
-        // Mobile view
         warehouses.map((warehouse) => (
           <div className="inventory-list__box">
             <div key={warehouse.id} className="warehouse-list__content-box">
@@ -90,7 +89,6 @@ const WarehouseList = ({ warehouses, onDelete }) => {
           </div>
         ))
       ) : (
-        // Tablet/Desktop view as a table
         <table className="warehouse-list__table">
           <thead>
             <tr>

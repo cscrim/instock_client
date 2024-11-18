@@ -46,10 +46,7 @@
       }
 
       &:hover {
-        background-color: darken(
-          $primary-indigo,
-          10%
-        ); /* Slightly darker on hover */
+        background-color: $background-graphite;
       }
     }
   }

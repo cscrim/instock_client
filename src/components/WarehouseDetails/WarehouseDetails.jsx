@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import InventoryList from "../InventoryList/InventoryList"; // Import InventoryList
+import InventoryList from "../InventoryList/InventoryList";
 import editIcon from "../../assets/Icons/edit-white-24px.svg";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import "./WarehouseDetails.scss";
@@ -15,7 +15,6 @@ const WarehouseDetails = ({ warehouse, inventory, onEdit }) => {
     <div className="warehouse-details">
       <div className="warehouse-details__header">
         <div className="warehouse-details__name">
-          {/* Wrap back arrow in a Link to redirect to the Warehouse page */}
           <Link to="/" className="warehouse-details__back-link">
             <img
               src={backArrow}
@@ -26,8 +25,7 @@ const WarehouseDetails = ({ warehouse, inventory, onEdit }) => {
           <h1>{warehouse.warehouse_name}</h1>
         </div>
 
-        {/* Link for editing warehouse */}
-        {/* <Link
+        <Link
           to={`/warehouses/edit/${warehouse.id}`}
           className="warehouse-details__edit-link"
         >
@@ -38,12 +36,6 @@ const WarehouseDetails = ({ warehouse, inventory, onEdit }) => {
               alt="edit pencil icon"
             />
           </button>
-        </Link>
-
-        <Link
-          to={`/warehouses/edit/${warehouse.id}`}
-          className="warehouse-details__edit-link--tablet"
-        >
           <div className="warehouse-details__edit-button--tablet">
             <img
               src={editIcon}
@@ -52,20 +44,6 @@ const WarehouseDetails = ({ warehouse, inventory, onEdit }) => {
             />
             Edit
           </div>
-        </Link>*/}
-
-        <Link
-          to={`/warehouses/edit/${warehouse.id}`}
-          className="warehouse-details__edit-link"
-        >
-          <button className="warehouse-details__edit-button">
-            <img
-              src={editIcon}
-              className="edit-button__icon"
-              alt="edit pencil icon"
-            />
-            <span className="edit-button__text">Edit</span>
-          </button>
         </Link>
       </div>
 
@@ -95,9 +73,9 @@ const WarehouseDetails = ({ warehouse, inventory, onEdit }) => {
       <div className="warehouse-details__inventory">
         <h2 className="inventory__title">Inventory</h2>
         <InventoryList
-          inventoryItems={inventory} // Pass inventory items
-          onDelete={handleDelete} // Optional delete handler
-          hideWarehouseColumn={true} // Hide the warehouse column on this page
+          inventoryItems={inventory}
+          onDelete={handleDelete}
+          hideWarehouseColumn={true}
         />
       </div>
     </div>

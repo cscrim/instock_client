@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import WarehouseList from "../../components/WarehouseList/WarehouseList"; // Import WarehouseList component
-import WarehouseDeleteModal from "../../components/WarehouseDeleteModal/WarehouseDeleteModal"; // Import the modal component
+import WarehouseList from "../../components/WarehouseList/WarehouseList";
+import WarehouseDeleteModal from "../../components/WarehouseDeleteModal/WarehouseDeleteModal";
 import "./Warehouse.scss";
 import { Link } from "react-router-dom";
 

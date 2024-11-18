@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import InventoryList from "../../components/InventoryList/InventoryList"; // Import InventoryList component
-import InventoryDeleteModal from "../../components/InventoryDeleteModal/InventoryDeleteModal"; // Import the modal component
+import InventoryList from "../../components/InventoryList/InventoryList";
+import InventoryDeleteModal from "../../components/InventoryDeleteModal/InventoryDeleteModal";
 import "./Inventory.scss";
 
 const InventoryPage = () => {

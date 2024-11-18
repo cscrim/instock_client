@@ -307,3 +307,29 @@
   border-bottom: 0.0625rem solid $secondary-cloud;
   margin: 1rem;
 }
+
+@mixin details-edit-mobile {
+  margin: 1rem;
+  background-color: $primary-indigo;
+  color: white;
+  border-radius: 50%; /* Circular button */
+  border: none;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem; /* Fixed dimensions for the circle */
+  height: 2.5rem;
+}
+
+@mixin details-edit-tablet {
+  display: flex; /* Show on tablet and desktop */
+  flex-direction: row;
+  align-items: center;
+  background-color: $primary-indigo;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem; /* Spacing for the "Edit" button */
+  border-radius: 1.25rem; /* Rounded rectangle for consistency */
+  cursor: pointer;
+}

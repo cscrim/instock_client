@@ -16,24 +16,42 @@
     align-items: center;
   }
 
+  &__edit-link {
+    text-decoration: none;
+  }
+
   &__edit-button {
-    margin: 1rem;
-    background-color: $primary-indigo;
-    color: white;
-    border-radius: 50%;
-    border: none;
-    padding: 0.5rem;
+    @include details-edit-mobile;
 
     @include tablet {
-      @include tablet-primary-button-styling;
-      display: block;
-      display: flex;
-      align-items: center;
+      display: none; /* Hide on tablet and desktop */
+    }
+
+    img {
+      width: 1.5rem; /* Center icon sizing */
+      height: 1.5rem;
     }
   }
 
-  &__edit-button__text {
+  &__edit-button--tablet {
     display: none;
+
+    @include tablet {
+      @include details-edit-tablet;
+
+      img {
+        width: 1.5rem; /* Consistent icon size */
+        height: 1.5rem;
+        margin-right: 0.5rem; /* Space between icon and text */
+      }
+
+      &:hover {
+        background-color: darken(
+          $primary-indigo,
+          10%
+        ); /* Slightly darker on hover */
+      }
+    }
   }
 
   &__back-button {

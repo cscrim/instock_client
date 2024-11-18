@@ -1,0 +1,117 @@
+@use "/src/styles/partials/variables" as *;
+@use "/src/styles/partials/mixins" as *;
+@use "/src/styles/partials/global" as *;
+
+// Global Reset
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body Styling */
+body {
+  background: linear-gradient(
+    rgba(35, 41, 64, 1) 250px,
+    rgba(255, 255, 255, 1) 250px
+  );
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Titillium Web";
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Header Section */
+.header-container {
+  min-width: 100vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  background: linear-gradient(
+    90deg,
+    $background-graphite,
+    $background-graphite
+  );
+  font-family: "Titillium Web";
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @include mobile-page-header;
+  @include tablet {
+    @include tablet-page-header;
+    width: 90%;
+    flex-direction: row;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  @include desktop {
+    width: 70%;
+  }
+
+  &__img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    @include tablet {
+      flex-direction: row;
+      justify-content: start;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 20px;
+    object-fit: contain;
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+    @include tablet {
+      gap: 5%;
+    }
+  }
+
+  &__tab {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: bold;
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: $secondary-cloud;
+    text-decoration: none; //
+    transition: color 0.3s ease, background-color 0.3s ease;
+    width: auto;
+    text-align: center;
+
+    &:hover {
+      color: $primary-white;
+      background-color: $primary-black;
+    }
+
+    &--active {
+      background-color: $primary-black;
+      color: $primary-white;
+    }
+  }
+}

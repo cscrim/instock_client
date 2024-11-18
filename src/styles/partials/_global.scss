@@ -1,0 +1,17 @@
+@use "./typography" as *;
+@use "./mixins" as *;
+@use "./variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Titillium Web", sans-serif;
+  margin: 0;
+  min-width: 20rem;
+  color: $primary-black;
+}
+

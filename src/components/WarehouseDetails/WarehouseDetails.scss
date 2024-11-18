@@ -1,0 +1,95 @@
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
+.warehouse-details {
+  background-color: white;
+  padding: 2rem;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include divider;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+  }
+
+  &__edit-link {
+    text-decoration: none;
+  }
+
+  &__edit-button {
+    @include details-edit-mobile;
+
+    @include tablet {
+      display: none; /* Hide on tablet and desktop */
+    }
+
+    img {
+      width: 1.5rem; /* Center icon sizing */
+      height: 1.5rem;
+    }
+  }
+
+  &__edit-button--tablet {
+    display: none;
+
+    @include tablet {
+      @include details-edit-tablet;
+
+      img {
+        width: 1.5rem; /* Consistent icon size */
+        height: 1.5rem;
+        margin-right: 0.5rem; /* Space between icon and text */
+      }
+
+      &:hover {
+        background-color: $background-graphite;
+      }
+    }
+  }
+
+  &__back-button {
+    height: 2rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    @include divider;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+}
+
+.content__title {
+  color: $secondary-cloud;
+}
+.content__contact-box {
+  display: flex;
+  justify-content: space-between;
+
+  @include tablet {
+    border-left: 1px solid $secondary-cloud;
+    padding: 0 4rem;
+    padding-right: 4.5rem;
+  }
+
+  @include desktop {
+    padding-right: 14.5rem;
+  }
+}
+
+.content__contact-name {
+  margin-right: 4rem;
+}
+
+.edit-button__icon {
+  margin-right: 0.25rem;
+}

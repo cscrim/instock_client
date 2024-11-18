@@ -1,0 +1,335 @@
+@use "./variables" as *;
+
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin mobile-page-header {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+}
+
+@mixin mobile-subheader {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+@mixin mobile-labels {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+}
+
+@mixin mobile-table-header {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+}
+
+@mixin mobile-body-large {
+  font-size: 0.9375rem;
+  line-height: 1.625rem;
+}
+
+@mixin mobile-body-medium {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+}
+
+@mixin mobile-body-small {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+}
+
+@mixin tablet-page-header {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+@mixin tablet-subheader {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@mixin tablet-labels {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+
+@mixin tablet-table-header {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+}
+
+@mixin tablet-body-large {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+@mixin tablet-body-medium {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+
+@mixin tablet-body-small {
+  font-size: 12px;
+  line-height: 1.125rem;
+}
+
+@mixin page-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@mixin mobile-primary-button-styling {
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  color: white;
+  background-color: $primary-indigo;
+  border: none;
+}
+
+@mixin mobile-secondary-button-styling {
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  border-color: $secondary-cloud;
+  color: $secondary-slate;
+  background-color: $primary-white;
+}
+
+@mixin mobile-delete-button-styling {
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  color: white;
+  background-color: $supporting-red;
+}
+
+@mixin tablet-primary-button-styling {
+  height: 2.375rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 1.25rem;
+  color: white;
+  background-color: $primary-indigo;
+  border: none;
+  width: 40%;
+
+  &:hover {
+    background-color: $background-graphite;
+  }
+}
+
+@mixin tablet-secondary-button-styling {
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 1.25rem;
+  border-color: $secondary-cloud;
+  color: $secondary-slate;
+  background-color: $primary-white;
+
+  &:hover {
+    border: 0.0625rem solid $primary-indigo;
+  }
+}
+
+@mixin tablet-delete-button-styling {
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  color: white;
+  background-color: $supporting-red;
+
+  &:hover {
+    background-color: $supporting-red;
+  }
+}
+
+@mixin mobile-text-field-styling {
+  height: 2.25rem;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: $primary-white;
+  color: $secondary-cloud;
+  border: 0.0625rem solid $secondary-cloud;
+
+  &:active {
+    border: 0.0625rem solid $primary-indigo;
+    color: $primary-black;
+  }
+}
+
+@mixin tablet-text-field-styling {
+  height: 2.375rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: $primary-white;
+  color: $secondary-cloud;
+  border: 0.0625rem solid $secondary-cloud;
+
+  &:active {
+    border: 0.0625rem solid $primary-indigo;
+    color: $primary-black;
+  }
+}
+
+@mixin mobile-dropdown-styling {
+  height: 2.25rem;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: $primary-white;
+  color: $secondary-cloud;
+  border: 0.0625rem solid $secondary-cloud;
+
+  &:active {
+    border: 0.0625rem solid $primary-indigo;
+    color: $primary-black;
+  }
+}
+
+@mixin tablet-dropdown-styling {
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: $primary-white;
+  color: $secondary-cloud;
+  border: 0.0625rem solid $secondary-cloud;
+
+  &:active {
+    border: 0.0625rem solid $primary-indigo;
+    color: $primary-black;
+  }
+}
+
+@mixin mobile-search-styling {
+  height: 2.25rem;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: $primary-white;
+  color: $secondary-cloud;
+  border: 0.0625rem solid $secondary-cloud;
+  border-radius: 1.25rem;
+
+  &:active {
+    border: 0.0625rem solid $primary-indigo;
+    color: $primary-black;
+  }
+}
+
+@mixin tablet-search-styling {
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: $primary-white;
+  color: $secondary-cloud;
+  border: 0.0625rem solid $secondary-cloud;
+  border-radius: 1.25rem;
+
+  &:active {
+    border: 0.0625rem solid $primary-indigo;
+    color: $primary-black;
+  }
+}
+
+@mixin radio-button {
+  accent-color: $secondary-cloud;
+
+  &:active {
+    accent-color: $primary-indigo;
+  }
+}
+
+@mixin mobile-instock-tag {
+  height: 1.5rem; // Fixed height for consistent appearance
+  padding-left: 0.5rem; // Space inside left
+  padding-right: 0.5rem; // Space inside right
+  border-radius: 1.25rem; // Rounded corners
+  background-color: $supporting-green-opacity; // Background color with opacity
+  color: $supporting-green; // Text color
+  display: inline-block; // Ensure the element only takes up as much space as needed
+  text-align: center; // Center-align text
+}
+
+@mixin tablet-instock-tag {
+  height: 1.625rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: $supporting-green-opacity;
+  color: $supporting-green;
+  display: inline-block; // Ensure the element only takes up as much space as needed
+  text-align: center; // Center-align text
+}
+
+@mixin mobile-outofstock-tag {
+  height: 1.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 1.25rem;
+  background-color: $supporting-red-opacity;
+  color: $supporting-red;
+  display: inline-block; // Ensure the element only takes up as much space as needed
+  text-align: center; // Center-align text
+}
+
+@mixin tablet-outofstock-tag {
+  height: 1.625rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: $supporting-red-opacity;
+  color: $supporting-red;
+  display: inline-block; // Ensure the element only takes up as much space as needed
+  text-align: center; // Center-align text
+}
+
+@mixin divider {
+  border-bottom: 0.0625rem solid $secondary-cloud;
+  margin: 1rem;
+}
+
+@mixin details-edit-mobile {
+  margin: 1rem;
+  background-color: $primary-indigo;
+  color: white;
+  border-radius: 50%; /* Circular button */
+  border: none;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem; /* Fixed dimensions for the circle */
+  height: 2.5rem;
+}
+
+@mixin details-edit-tablet {
+  display: flex; /* Show on tablet and desktop */
+  flex-direction: row;
+  align-items: center;
+  background-color: $primary-indigo;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem; /* Spacing for the "Edit" button */
+  border-radius: 1.25rem; /* Rounded rectangle for consistency */
+  cursor: pointer;
+}
